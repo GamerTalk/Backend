@@ -11,3 +11,10 @@ def hello(request):
 def testhello(request):
     test = ["Jack Johnson", "John Jackson"]
     return Response(test)
+
+@api_view(['POST'])
+def NewUser(request):
+    uid = request.data['uid']
+
+
+    return Response(uid)
