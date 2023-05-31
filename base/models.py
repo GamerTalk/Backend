@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 class Users(models.Model):
-    uid = models.CharField(max_length=200)
-    username = models.CharField(max_length=20)
+    uid = models.CharField(max_length=200, unique=True)
+    username = models.CharField(max_length=20, unique=True)
     date_of_birth = models.DateField()
     about_me = models.TextField()
     languages = models.JSONField(default=dict)
