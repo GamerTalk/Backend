@@ -15,6 +15,8 @@ def testhello(request):
 @api_view(['POST'])
 def NewUser(request):
     uid = request.data['uid']
+    about_me = request.data['about_me']
+    
 
 
     return Response(uid)
