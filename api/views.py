@@ -42,6 +42,18 @@ def testhello(request):
 
 @api_view(["POST"])
 def NewUser(request):
+
+# sample body
+# {
+#     "uid": "delete me",
+#     "username": "GodSlayerXD",
+#     "about_me": "I was born in a log cabin.",
+#     "fluent": ["english", "spanish"],
+#     "learning": [{"language":"german", "level": 1}],
+#     "date_of_birth": "1999-01-01",
+#     "systems": ["playstation"],
+#     "genre": ["FPS"]
+# }
     uid = request.data["uid"]
     username = request.data["username"]
     about_me = request.data["about_me"]
@@ -66,8 +78,8 @@ def NewUser(request):
     if user_serializer.is_valid():
         user_serializer.save()
     else:
-            errors = user_serializer.errors
-            return Response({'errors': errors}, status=400)
+        errors = user_serializer.errors
+        return Response({'errors': errors}, status=400)
 
     model_map = {
         'english': (english, englishSerializer),
@@ -80,17 +92,20 @@ def NewUser(request):
     }
 
 # adds the languages the user is fluent in to the appropriate language tables
-    # for item in fluent:
-    #     language = item.lower()
-    #     if language in model_map:
-    #         ModelClass, SerializerClass = model_map[language]
-    #         data = {
-    #             "user_uid": uid,
-    #             "level": 4
-    #         }
-    #         serializer = SerializerClass(data=data)
-    #         if serializer.is_valid():
-    #             serializer.save()
+    for item in fluent:
+        language = item.lower()
+        if language in model_map:
+            ModelClass, SerializerClass = model_map[language]
+            data = {
+                "user_uid": uid,
+                "level": 4
+            }
+            serializer = SerializerClass(data=data)
+            if serializer.is_valid():
+                serializer.save()
+            else:
+                errors = serializer.errors
+                return Response({'errors': errors}, status=400)
 
 
     return Response(

@@ -10,44 +10,44 @@ class Users(models.Model):
     languages = models.JSONField(default=dict)
 
 class english(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class spanish(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class japanese(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class korean(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class chinese(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class german(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class french(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
 class systems(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     system = models.TextField()
 
 class genre(models.Model):
-    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE)
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     genre = models.TextField()
 
 class messages(models.Model):
-    sender = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='sender_uid')
-    receiver = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='receiver_uid')
+    sender = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid', related_name='sender_uid')
+    receiver = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid', related_name='receiver_uid')
     time_of_message = models.TimeField()
     message = models.TextField()
 
