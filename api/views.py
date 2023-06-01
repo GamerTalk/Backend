@@ -39,6 +39,19 @@ def testhello(request):
     test = ["Jack Johnson", "John Jackson"]
     return Response(test)
 
+@api_view(["GET"])
+def allUsers(request):
+    allUsers = Users.objects.all()
+    serializer = UsersSerializer(allUsers, many=True)
+    return Response(serializer.data)
+
+@api_view(["GET"])
+def filterUsers(request):
+    user_agent = request.headers
+    genre = user_agent.get("genre")
+    print(genre)
+    return Response(user_agent)
+
 
 @api_view(["POST"])
 def NewUser(request):
@@ -167,3 +180,4 @@ def NewUser(request):
             "genre": genre
         }
     )
+
