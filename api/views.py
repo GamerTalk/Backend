@@ -49,10 +49,11 @@ def NewUser(request):
 #     "username": "GodSlayerXD",
 #     "about_me": "I was born in a log cabin.",
 #     "fluent": ["english", "spanish"],
-#     "learning": [{"language":"german", "level": 1}],
+#     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],
 #     "date_of_birth": "1999-01-01",
-#     "systems": ["playstation"],
-#     "genre": ["FPS"]
+#     "systems": ["playstation","PC"],
+#     "genre": ["FPS", "survival"],
+#     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival"
 # }
     uid = request.data["uid"]
     username = request.data["username"]
@@ -62,15 +63,17 @@ def NewUser(request):
     date_of_birth = request.data["date_of_birth"]
     user_systems = request.data["systems"]
     genre = request.data["genre"]
+    currently_playing = request.data["currently_playing"]
     languages_column = {"fluent": fluent, "learning": learning}
 
-# structures the data how the Users table wants it
+# structures the data how the Users table wants the payload
     users_data = {
         "uid": uid,
         "username": username,
         "date_of_birth": date_of_birth,
         "about_me": about_me,
-        "languages": languages_column
+        "languages": languages_column,
+        "currently_playing": currently_playing
     }
 
 # added the user to the Users table
@@ -96,16 +99,59 @@ def NewUser(request):
         language = item.lower()
         if language in model_map:
             ModelClass, SerializerClass = model_map[language]
-            data = {
+            payload = {
                 "user_uid": uid,
                 "level": 4
             }
-            serializer = SerializerClass(data=data)
+            serializer = SerializerClass(data=payload)
             if serializer.is_valid():
                 serializer.save()
             else:
                 errors = serializer.errors
                 return Response({'errors': errors}, status=400)
+
+# adds the languages the user is learning in to the appropriate language tables
+    for item in learning:
+        language = item["language"].lower()
+        level = item["level"]
+        if language in model_map:
+            ModelClass, SerializerClass = model_map[language]
+            payload = {
+                "user_uid": uid,
+                "level": level
+            }
+            serializer = SerializerClass(data=payload)
+            if serializer.is_valid():
+                serializer.save()
+            else:
+                errors = serializer.errors
+                return Response({'errors': errors}, status=400)
+            
+# adds the system the user plays on to the systems table
+    for system in user_systems:
+        payload = {
+            "user_uid": uid,
+            "system": system
+        }
+        serializer = systemsSerializer(data=payload)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            errors = serializer.errors
+            return Response({'errors': errors}, status=400)
+            
+# adds the genre the user plays on to the genre table
+    for single_genre in genre:
+        payload = {
+            "user_uid": uid,
+            "genre": single_genre
+        }
+        serializer = genraSerializer(data=payload)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            errors = serializer.errors
+            return Response({'errors': errors}, status=400)
 
 
     return Response(

@@ -8,6 +8,7 @@ class Users(models.Model):
     date_of_birth = models.DateField()
     about_me = models.TextField()
     languages = models.JSONField(default=dict)
+    currently_playing = models.TextField(default=str)
 
 class english(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
