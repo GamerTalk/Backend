@@ -60,7 +60,7 @@ def allUsers(request):
 @api_view(["GET"])
 def filterUsers(request):
 
-#     sample of what the header must look like (probably a body)
+#     sample of what the header must look like (probably an object format with axios)
     # systems:["playstation", "switch"]
     # genre:["shooters", "RPG"]
     # language:"japanese"
