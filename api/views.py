@@ -1,3 +1,5 @@
+from django.db.models import Q
+from django.core import serializers
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from base.models import (
@@ -28,6 +30,16 @@ from .serializers import (
 )
 import json
 
+model_map = {
+    'english': (english, englishSerializer),
+    'spanish': (spanish, spanishSerializer),
+    'german': (german, germanSerializer),
+    'french': (french, frenchSerializer),
+    'japanese': (japanese, japaneseSerializer),
+    'chinese': (chinese, chineseSerializer),
+    'korean': (korean, koreanSerializer),
+}
+
 
 @api_view(["GET"])
 def hello(request):
@@ -47,17 +59,56 @@ def allUsers(request):
 
 @api_view(["GET"])
 def filterUsers(request):
+
+#     sample of what the header must look like (probably an object format with axios)
+    # systems:["playstation", "switch"]
+    # genre:["shooters", "RPG"]
+    # language:"japanese"
     user_agent = request.headers
     genre = user_agent.get("genre")
     systems = user_agent.get("systems")
     language = user_agent.get("language")
 
-    search_query = {
-        
-    }
+    search_query = {}
 
-    print(genre)
-    return Response(user_agent)
+    if genre:
+        search_query["genre"] = json.loads(genre)
+
+    if systems:
+        search_query["systems"] = json.loads(systems)
+
+    if language:
+        search_query["language"] = json.loads(language)
+
+    genre_conditions = Q()
+    for genre in search_query.get("genre", []):
+        genre_conditions |= Q(genre__genre=genre)
+
+    system_conditions = Q()
+    for system in search_query.get("systems", []):
+        system_conditions |= Q(systems__system=system)
+                
+
+    results = Users.objects.filter(genre_conditions, system_conditions)
+    serialized_results = json.loads(serializers.serialize('json', results))
+    # serialized_results = serializers.serialize('json', results, fields=('uid','username', 'genre__genre'))
+
+    #test that the user speaks the target language
+    try:
+        if search_query["language"]:
+            sendUsers = []
+            for user in serialized_results:
+                if search_query["language"] in user["fields"]["languages"]["fluent"]:
+                    sendUsers.append(user)
+            # print('🍟🍒😂',sendUsers)
+            return Response(sendUsers)
+    except KeyError:
+        return Response(serialized_results)
+
+
+
+    # print(search_query)
+    # return Response(search_query)
 
 
 @api_view(["POST"])
@@ -104,15 +155,6 @@ def NewUser(request):
         errors = user_serializer.errors
         return Response({'errors': errors}, status=400)
 
-    model_map = {
-        'english': (english, englishSerializer),
-        'spanish': (spanish, spanishSerializer),
-        'german': (german, germanSerializer),
-        'french': (french, frenchSerializer),
-        'japanese': (japanese, japaneseSerializer),
-        'chinese': (chinese, chineseSerializer),
-        'korean': (korean, koreanSerializer),
-    }
 
 # adds the languages the user is fluent in to the appropriate language tables
     for item in fluent:
