@@ -52,6 +52,10 @@ def filterUsers(request):
     systems = user_agent.get("systems")
     language = user_agent.get("language")
 
+    search_query = {
+        
+    }
+
     print(genre)
     return Response(user_agent)
 
