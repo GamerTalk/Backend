@@ -49,6 +49,9 @@ def allUsers(request):
 def filterUsers(request):
     user_agent = request.headers
     genre = user_agent.get("genre")
+    systems = user_agent.get("systems")
+    language = user_agent.get("language")
+
     print(genre)
     return Response(user_agent)
 
