@@ -100,7 +100,7 @@ def filterUsers(request):
             for user in serialized_results:
                 if search_query["language"] in user["fields"]["languages"]["fluent"]:
                     sendUsers.append(user)
-            print('🍟🍒😂',sendUsers)
+            # print('🍟🍒😂',sendUsers)
             return Response(sendUsers)
     except KeyError:
         return Response(serialized_results)
