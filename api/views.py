@@ -60,9 +60,9 @@ def allUsers(request):
 @api_view(["GET"])
 def filterUsers(request):
 
-#     sample of what the header must look like
-    # systems:["playstation"]
-    # genre:["shooters"]
+#     sample of what the header must look like (probably a body)
+    # systems:["playstation", "switch"]
+    # genre:["shooters", "RPG"]
     # language:"japanese"
     user_agent = request.headers
     genre = user_agent.get("genre")
