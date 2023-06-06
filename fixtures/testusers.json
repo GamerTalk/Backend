@@ -14,7 +14,8 @@
                     {"level": 3, "language": "japanese"}
                 ]
             },
-            "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival"
+            "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
+            "user_systems": ["PC", "PlayStation"]
         }
     },
     {"model": "base.english", "pk": 2, "fields": {"user_uid": "delete me", "level": 4}},
@@ -62,7 +63,8 @@
                     {"level": 3, "language": "english"}
                 ]
             },
-            "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken"
+            "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken",
+            "user_systems": ["PC", "Xbox"]
         }
     },
     {"model": "base.japanese", "pk": 3, "fields": {"user_uid": "TESTUSER2", "level": 4}},
@@ -109,7 +111,8 @@
                     {"level": 3, "language": "japanese"}
                 ]
             },
-            "currently_playing": "I am currently playing Among Us and Fall Guys."
+            "currently_playing": "I am currently playing Among Us and Fall Guys.",
+            "user_systems": ["PC", "Switch"]
         }
     },
     {"model": "base.chinese", "pk": 4, "fields": {"user_uid": "TESTUSER3", "level": 4}},
@@ -151,7 +154,8 @@
                     {"level": 1, "language": "spanish"}
                 ]
             },
-            "currently_playing": "I am currently playing Among Us and Fall Guys."
+            "currently_playing": "I am currently playing Among Us and Fall Guys.",
+            "user_systems": ["Switch", "PlayStation"]
         }
     },
     {"model": "base.french", "pk": 14, "fields": {"user_uid": "TESTUSER4", "level": 4}},
