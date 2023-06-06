@@ -7,4 +7,5 @@ urlpatterns = [
     path('new-user/', views.NewUser),
     path('all-users/', views.allUsers),
     path('filter-users/', views.filterUsers),
+    path('user-info/', views.userInfo),
 ]

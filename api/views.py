@@ -58,6 +58,14 @@ def allUsers(request):
     return Response(serializer.data)
 
 @api_view(["GET"])
+def userInfo(request):
+    user_agent = request.headers
+    uid = user_agent.get("uid")
+    singleuser = Users.objects.filter(uid=uid).first()
+    serializer = UsersSerializer(singleuser, many=False)
+    return Response(serializer.data)
+
+@api_view(["GET"])
 def filterUsers(request):
 
 #     sample of what the header must look like (probably an object format with axios)
@@ -124,7 +132,7 @@ def NewUser(request):
 #     "date_of_birth": "1999-01-01",
 #     "systems": ["playstation","PC"],
 #     "genre": ["FPS", "survival"],
-#     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival"
+#     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
 # }
     uid = request.data["uid"]
     username = request.data["username"]
@@ -144,7 +152,8 @@ def NewUser(request):
         "date_of_birth": date_of_birth,
         "about_me": about_me,
         "languages": languages_column,
-        "currently_playing": currently_playing
+        "currently_playing": currently_playing,
+        "user_systems": user_systems
     }
 
 # added the user to the Users table
