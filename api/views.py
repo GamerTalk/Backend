@@ -58,6 +58,14 @@ def allUsers(request):
     return Response(serializer.data)
 
 @api_view(["GET"])
+def userInfo(request):
+    user_agent = request.headers
+    uid = user_agent.get("uid")
+    singleuser = Users.objects.filter(uid=uid).first()
+    serializer = UsersSerializer(singleuser, many=False)
+    return Response(serializer.data)
+
+@api_view(["GET"])
 def filterUsers(request):
 
 #     sample of what the header must look like (probably an object format with axios)
