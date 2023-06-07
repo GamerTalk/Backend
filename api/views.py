@@ -111,7 +111,9 @@ def filterUsers(request):
             # print('🍟🍒😂',sendUsers)
             return Response(sendUsers)
     except KeyError:
-        return Response(serialized_results)
+        def removeFields(x):
+            return x['fields']
+        return Response(map(removeFields, serialized_results))
 
 
 
