@@ -51,11 +51,11 @@ def testhello(request):
     test = ["Jack Johnson", "John Jackson"]
     return Response(test)
 
-@api_view(["GET"])
-def allUsers(request):
-    allUsers = Users.objects.all()
-    serializer = UsersSerializer(allUsers, many=True)
-    return Response(serializer.data)
+# @api_view(["GET"])
+# def allUsers(request):
+#     allUsers = Users.objects.all()
+#     serializer = UsersSerializer(allUsers, many=True)
+#     return Response(serializer.data)
 
 @api_view(["GET"])
 def userInfo(request):
