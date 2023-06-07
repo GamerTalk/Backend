@@ -86,7 +86,7 @@ def filterUsers(request):
         search_query["systems"] = json.loads(systems)
 
     if language:
-        search_query["language"] = json.loads(language)
+        search_query["language"] = language
 
     genre_conditions = Q()
     for genre in search_query.get("genre", []):
@@ -153,7 +153,8 @@ def NewUser(request):
         "about_me": about_me,
         "languages": languages_column,
         "currently_playing": currently_playing,
-        "user_systems": user_systems
+        "user_systems": user_systems,
+        "user_genre": genre
     }
 
 # added the user to the Users table

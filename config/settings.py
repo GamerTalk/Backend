@@ -156,5 +156,8 @@ CORS_ALLOW_HEADERS = [
     'dnt',
     'origin',
     'user-agent',
-    'uid',  # Add 'uid' to the allowed headers
+    'uid',
+    'systems',
+    'genre',
+    'language',
 ]
