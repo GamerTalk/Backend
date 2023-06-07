@@ -10,6 +10,7 @@ class Users(models.Model):
     languages = models.JSONField(default=dict)
     currently_playing = models.TextField(default=str)
     user_systems = models.JSONField(default=list)
+    user_genre = models.JSONField(default=list)
 
 class english(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')

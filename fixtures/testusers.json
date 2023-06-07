@@ -15,7 +15,8 @@
                 ]
             },
             "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
-            "user_systems": ["PC", "PlayStation"]
+            "user_systems": ["PC", "PlayStation"],
+            "user_genre": ["survival", "shooters"]
         }
     },
     {"model": "base.english", "pk": 2, "fields": {"user_uid": "delete me", "level": 4}},
@@ -64,7 +65,8 @@
                 ]
             },
             "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken",
-            "user_systems": ["PC", "Xbox"]
+            "user_systems": ["PC", "Xbox"],
+            "user_genre": ["fighting", "shooters"]
         }
     },
     {"model": "base.japanese", "pk": 3, "fields": {"user_uid": "TESTUSER2", "level": 4}},
@@ -112,7 +114,8 @@
                 ]
             },
             "currently_playing": "I am currently playing Among Us and Fall Guys.",
-            "user_systems": ["PC", "Switch"]
+            "user_systems": ["PC", "Switch"],
+            "user_genre": ["party games"]
         }
     },
     {"model": "base.chinese", "pk": 4, "fields": {"user_uid": "TESTUSER3", "level": 4}},
@@ -155,7 +158,8 @@
                 ]
             },
             "currently_playing": "I am currently playing Among Us and Fall Guys.",
-            "user_systems": ["Switch", "PlayStation"]
+            "user_systems": ["Switch", "PlayStation"],
+            "user_genre": ["party games"]
         }
     },
     {"model": "base.french", "pk": 14, "fields": {"user_uid": "TESTUSER4", "level": 4}},
