@@ -71,7 +71,7 @@ def filterUsers(request):
 #     sample of what the header must look like (probably an object format with axios)
     # systems:["playstation", "switch"]
     # genre:["shooters", "RPG"]
-    # language:"japanese"
+    # language:japanese
     user_agent = request.headers
     genre = user_agent.get("genre")
     systems = user_agent.get("systems")
@@ -107,7 +107,7 @@ def filterUsers(request):
             sendUsers = []
             for user in serialized_results:
                 if search_query["language"] in user["fields"]["languages"]["fluent"]:
-                    sendUsers.append(user)
+                    sendUsers.append(user['fields'])
             # print('🍟🍒😂',sendUsers)
             return Response(sendUsers)
     except KeyError:
