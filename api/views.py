@@ -14,6 +14,7 @@ from base.models import (
     systems,
     genre,
     messages,
+    region
 )
 from .serializers import (
     UsersSerializer,
@@ -27,6 +28,7 @@ from .serializers import (
     systemsSerializer,
     genraSerializer,
     messagesSerializer,
+    regionSerializer
 )
 import json
 
@@ -69,13 +71,19 @@ def userInfo(request):
 def filterUsers(request):
 
 #     sample of what the header must look like (probably an object format with axios)
-    # systems:["playstation", "switch"]
-    # genre:["shooters", "RPG"]
-    # language:japanese
+    # {
+        # systems:["playstation", "switch"]
+        # genre:["shooters", "RPG"]
+        # language:japanese
+        # region: ["north america"] 
+        # endregion <- dont use this
+    # }
     user_agent = request.headers
     genre = user_agent.get("genre")
     systems = user_agent.get("systems")
     language = user_agent.get("language")
+    regions = user_agent.get("region")
+
 
     search_query = {}
 
@@ -88,6 +96,9 @@ def filterUsers(request):
     if language:
         search_query["language"] = language
 
+    if regions:
+        search_query["regions"] = regions
+
     genre_conditions = Q()
     for genre in search_query.get("genre", []):
         genre_conditions |= Q(genre__genre=genre)
@@ -96,8 +107,12 @@ def filterUsers(request):
     for system in search_query.get("systems", []):
         system_conditions |= Q(systems__system=system)
                 
+    region_conditions = Q()
+    for region in search_query.get("regions", []):
+        region_conditions |= Q(region__region=region)
+                
 
-    results = Users.objects.filter(genre_conditions, system_conditions)
+    results = Users.objects.filter(genre_conditions, system_conditions, region_conditions)
     serialized_results = json.loads(serializers.serialize('json', results))
     # serialized_results = serializers.serialize('json', results, fields=('uid','username', 'genre__genre'))
 
@@ -135,6 +150,7 @@ def NewUser(request):
 #     "systems": ["playstation","PC"],
 #     "genre": ["FPS", "survival"],
 #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
+#     "region": "north america"
 # }
     uid = request.data["uid"]
     username = request.data["username"]
@@ -145,6 +161,7 @@ def NewUser(request):
     user_systems = request.data["systems"]
     genre = request.data["genre"]
     currently_playing = request.data["currently_playing"]
+    region = request.data["region"]
     languages_column = {"fluent": fluent, "learning": learning}
 
 # structures the data how the Users table wants the payload
@@ -156,7 +173,8 @@ def NewUser(request):
         "languages": languages_column,
         "currently_playing": currently_playing,
         "user_systems": user_systems,
-        "user_genre": genre
+        "user_genre": genre,
+        "user_region": region,
     }
 
 # added the user to the Users table
@@ -226,6 +244,17 @@ def NewUser(request):
         else:
             errors = serializer.errors
             return Response({'errors': errors}, status=400)
+        
+        region_payload = {
+            "user_uid": uid,
+            "region": region
+        }
+        region_serializer = regionSerializer(data=region_payload)
+        if region_serializer.is_valid():
+            region_serializer.save()
+        else:
+            errors = region_serializer.errors
+            return Response({'errors': errors}, status=400)
 
 
     return Response(
@@ -238,7 +267,8 @@ def NewUser(request):
             "date_of_birth": date_of_birth,
             "languages_column": languages_column,
             "systems": user_systems,
-            "genre": genre
+            "genre": genre,
+            "region": region
         }
     )
 
