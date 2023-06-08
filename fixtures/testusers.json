@@ -1,187 +1,222 @@
 [
-    {
-        "model": "base.users",
-        "pk": 6,
-        "fields": {
-            "uid": "delete me",
-            "username": "GodSlayerXD",
-            "date_of_birth": "1999-01-01",
-            "about_me": "I was born in a log cabin.",
-            "languages": {
-                "fluent": ["english", "spanish"],
-                "learning": [
-                    {"level": 1, "language": "german"},
-                    {"level": 3, "language": "japanese"}
-                ]
-            },
-            "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
-            "user_systems": ["PC", "PlayStation"],
-            "user_genre": ["survival", "shooters"]
-        }
-    },
-    {"model": "base.english", "pk": 2, "fields": {"user_uid": "delete me", "level": 4}},
-    {"model": "base.spanish", "pk": 2, "fields": {"user_uid": "delete me", "level": 4}},
-    {
-        "model": "base.japanese",
-        "pk": 1,
-        "fields": {"user_uid": "delete me", "level": 3}
-    },
-    {"model": "base.german", "pk": 1, "fields": {"user_uid": "delete me", "level": 1}},
-    {
-        "model": "base.systems",
-        "pk": 1,
-        "fields": {"user_uid": "delete me", "system": "playstation"}
-    },
-    {
-        "model": "base.systems",
-        "pk": 2,
-        "fields": {"user_uid": "delete me", "system": "PC"}
-    },
-    {
-        "model": "base.genre",
-        "pk": 1,
-        "fields": {"user_uid": "delete me", "genre": "shooters"}
-    },
-    {
-        "model": "base.genre",
-        "pk": 2,
-        "fields": {"user_uid": "delete me", "genre": "survival"}
-    },
-
-
-    {
-        "model": "base.users",
-        "pk": 7,
-        "fields": {
-            "uid": "TESTUSER2",
-            "username": "TESTUSER2",
-            "date_of_birth": "2005-02-23",
-            "about_me": "I was created to be test user 2.",
-            "languages": {
-                "fluent": ["japanese"],
-                "learning": [
-                    {"level": 1, "language": "german"},
-                    {"level": 3, "language": "english"}
-                ]
-            },
-            "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken",
-            "user_systems": ["PC", "Xbox"],
-            "user_genre": ["fighting", "shooters"]
-        }
-    },
-    {"model": "base.japanese", "pk": 3, "fields": {"user_uid": "TESTUSER2", "level": 4}},
-    {
-        "model": "base.english",
-        "pk": 5,
-        "fields": {"user_uid": "TESTUSER2", "level": 3}
-    },
-    {"model": "base.german", "pk": 5, "fields": {"user_uid": "TESTUSER2", "level": 1}},
-    {
-        "model": "base.systems",
-        "pk": 5,
-        "fields": {"user_uid": "TESTUSER2", "system": "playstation"}
-    },
-    {
-        "model": "base.systems",
-        "pk": 6,
-        "fields": {"user_uid": "TESTUSER2", "system": "switch"}
-    },
-    {
-        "model": "base.genre",
-        "pk": 5,
-        "fields": {"user_uid": "TESTUSER2", "genre": "shooters"}
-    },
-    {
-        "model": "base.genre",
-        "pk": 6,
-        "fields": {"user_uid": "TESTUSER2", "genre": "fighting"}
-    },
-
-
-    {
-        "model": "base.users",
-        "pk": 8,
-        "fields": {
-            "uid": "TESTUSER3",
-            "username": "TESTUSER3",
-            "date_of_birth": "2023-02-23",
-            "about_me": "I was created to be test user 3.",
-            "languages": {
-                "fluent": ["korean", "chinese"],
-                "learning": [
-                    {"level": 1, "language": "english"},
-                    {"level": 3, "language": "japanese"}
-                ]
-            },
-            "currently_playing": "I am currently playing Among Us and Fall Guys.",
-            "user_systems": ["PC", "Switch"],
-            "user_genre": ["party games"]
-        }
-    },
-    {"model": "base.chinese", "pk": 4, "fields": {"user_uid": "TESTUSER3", "level": 4}},
-    {"model": "base.korean", "pk": 4, "fields": {"user_uid": "TESTUSER3", "level": 4}},
-    {
-        "model": "base.english",
-        "pk": 6,
-        "fields": {"user_uid": "TESTUSER3", "level": 1}
-    },
-    {"model": "base.japanese", "pk": 6, "fields": {"user_uid": "TESTUSER3", "level": 3}},
-    {
-        "model": "base.systems",
-        "pk": 6,
-        "fields": {"user_uid": "TESTUSER3", "system": "xbox"}
-    },
-    {
-        "model": "base.systems",
-        "pk": 7,
-        "fields": {"user_uid": "TESTUSER3", "system": "switch"}
-    },
-    {
-        "model": "base.genre",
-        "pk": 7,
-        "fields": {"user_uid": "TESTUSER3", "genre": "party games"}
-    },
-
-
-    {
-        "model": "base.users",
-        "pk": 9,
-        "fields": {
-            "uid": "TESTUSER4",
-            "username": "TESTUSER4",
-            "date_of_birth": "1977-02-23",
-            "about_me": "I was created to be test user 4.",
-            "languages": {
-                "fluent": ["french", "english"],
-                "learning": [
-                    {"level": 1, "language": "spanish"}
-                ]
-            },
-            "currently_playing": "I am currently playing Among Us and Fall Guys.",
-            "user_systems": ["Switch", "PlayStation"],
-            "user_genre": ["party games"]
-        }
-    },
-    {"model": "base.french", "pk": 14, "fields": {"user_uid": "TESTUSER4", "level": 4}},
-    {"model": "base.english", "pk": 14, "fields": {"user_uid": "TESTUSER4", "level": 4}},
-    {
-        "model": "base.spanish",
-        "pk": 6,
-        "fields": {"user_uid": "TESTUSER4", "level": 1}
-    },
-    {
-        "model": "base.systems",
-        "pk": 7,
-        "fields": {"user_uid": "TESTUSER3", "system": "xbox"}
-    },
-    {
-        "model": "base.systems",
-        "pk": 8,
-        "fields": {"user_uid": "TESTUSER3", "system": "PC"}
-    },
-    {
-        "model": "base.genre",
-        "pk": 8,
-        "fields": {"user_uid": "TESTUSER3", "genre": "party games"}
+  {
+    "model": "base.users",
+    "pk": 6,
+    "fields": {
+      "uid": "delete me",
+      "username": "GodSlayerXD",
+      "date_of_birth": "1999-01-01",
+      "about_me": "I was born in a log cabin.",
+      "languages": {
+        "fluent": ["english", "spanish"],
+        "learning": [
+          { "level": 1, "language": "german" },
+          { "level": 3, "language": "japanese" }
+        ]
+      },
+      "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
+      "user_systems": ["PC", "PlayStation"],
+      "user_genre": ["survival", "shooters"]
     }
+  },
+  {
+    "model": "base.english",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "level": 4 }
+  },
+  {
+    "model": "base.spanish",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "level": 4 }
+  },
+  {
+    "model": "base.japanese",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "level": 3 }
+  },
+  {
+    "model": "base.german",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "level": 1 }
+  },
+  {
+    "model": "base.systems",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "system": "PlayStation" }
+  },
+  {
+    "model": "base.systems",
+    "pk": 2,
+    "fields": { "user_uid": "delete me", "system": "PC" }
+  },
+  {
+    "model": "base.genre",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "genre": "shooters" }
+  },
+  {
+    "model": "base.genre",
+    "pk": 2,
+    "fields": { "user_uid": "delete me", "genre": "survival" }
+  },
+
+  {
+    "model": "base.users",
+    "pk": 7,
+    "fields": {
+      "uid": "TESTUSER2",
+      "username": "TESTUSER2",
+      "date_of_birth": "2005-02-23",
+      "about_me": "I was created to be test user 2.",
+      "languages": {
+        "fluent": ["japanese"],
+        "learning": [
+          { "level": 1, "language": "german" },
+          { "level": 3, "language": "english" }
+        ]
+      },
+      "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken",
+      "user_systems": ["PC", "Xbox"],
+      "user_genre": ["fighting", "shooters"]
+    }
+  },
+  {
+    "model": "base.japanese",
+    "pk": 2,
+    "fields": { "user_uid": "TESTUSER2", "level": 4 }
+  },
+  {
+    "model": "base.english",
+    "pk": 2,
+    "fields": { "user_uid": "TESTUSER2", "level": 3 }
+  },
+  {
+    "model": "base.german",
+    "pk": 2,
+    "fields": { "user_uid": "TESTUSER2", "level": 1 }
+  },
+  {
+    "model": "base.systems",
+    "pk": 3,
+    "fields": { "user_uid": "TESTUSER2", "system": "PC" }
+  },
+  {
+    "model": "base.systems",
+    "pk": 4,
+    "fields": { "user_uid": "TESTUSER2", "system": "Xbox" }
+  },
+  {
+    "model": "base.genre",
+    "pk": 3,
+    "fields": { "user_uid": "TESTUSER2", "genre": "shooters" }
+  },
+  {
+    "model": "base.genre",
+    "pk": 4,
+    "fields": { "user_uid": "TESTUSER2", "genre": "fighting" }
+  },
+
+  {
+    "model": "base.users",
+    "pk": 8,
+    "fields": {
+      "uid": "TESTUSER3",
+      "username": "TESTUSER3",
+      "date_of_birth": "2023-02-23",
+      "about_me": "I was created to be test user 3.",
+      "languages": {
+        "fluent": ["korean", "chinese"],
+        "learning": [
+          { "level": 1, "language": "english" },
+          { "level": 3, "language": "japanese" }
+        ]
+      },
+      "currently_playing": "I am currently playing Among Us and Fall Guys.",
+      "user_systems": ["Xbox", "Switch"],
+      "user_genre": ["party games"]
+    }
+  },
+  {
+    "model": "base.chinese",
+    "pk": 1,
+    "fields": { "user_uid": "TESTUSER3", "level": 4 }
+  },
+  {
+    "model": "base.korean",
+    "pk": 1,
+    "fields": { "user_uid": "TESTUSER3", "level": 4 }
+  },
+  {
+    "model": "base.english",
+    "pk": 3,
+    "fields": { "user_uid": "TESTUSER3", "level": 1 }
+  },
+  {
+    "model": "base.japanese",
+    "pk": 3,
+    "fields": { "user_uid": "TESTUSER3", "level": 3 }
+  },
+  {
+    "model": "base.systems",
+    "pk": 6,
+    "fields": { "user_uid": "TESTUSER3", "system": "Xbox" }
+  },
+  {
+    "model": "base.systems",
+    "pk": 7,
+    "fields": { "user_uid": "TESTUSER3", "system": "Switch" }
+  },
+  {
+    "model": "base.genre",
+    "pk": 5,
+    "fields": { "user_uid": "TESTUSER3", "genre": "party games" }
+  },
+
+  {
+    "model": "base.users",
+    "pk": 9,
+    "fields": {
+      "uid": "TESTUSER4",
+      "username": "TESTUSER4",
+      "date_of_birth": "1977-02-23",
+      "about_me": "I was created to be test user 4.",
+      "languages": {
+        "fluent": ["french", "english"],
+        "learning": [{ "level": 1, "language": "spanish" }]
+      },
+      "currently_playing": "I am currently playing Among Us and Fall Guys.",
+      "user_systems": ["Switch", "PlayStation"],
+      "user_genre": ["party games"]
+    }
+  },
+  {
+    "model": "base.french",
+    "pk": 1,
+    "fields": { "user_uid": "TESTUSER4", "level": 4 }
+  },
+  {
+    "model": "base.english",
+    "pk": 4,
+    "fields": { "user_uid": "TESTUSER4", "level": 4 }
+  },
+  {
+    "model": "base.spanish",
+    "pk": 2,
+    "fields": { "user_uid": "TESTUSER4", "level": 1 }
+  },
+  {
+    "model": "base.systems",
+    "pk": 8,
+    "fields": { "user_uid": "TESTUSER4", "system": "Switch" }
+  },
+  {
+    "model": "base.systems",
+    "pk": 9,
+    "fields": { "user_uid": "TESTUSER4", "system": "PlayStation" }
+  },
+  {
+    "model": "base.genre",
+    "pk": 6,
+    "fields": { "user_uid": "TESTUSER4", "genre": "party games" }
+  }
 ]
