@@ -245,16 +245,16 @@ def NewUser(request):
             errors = serializer.errors
             return Response({'errors': errors}, status=400)
         
-        region_payload = {
-            "user_uid": uid,
-            "region": region
-        }
-        region_serializer = regionSerializer(data=region_payload)
-        if region_serializer.is_valid():
-            region_serializer.save()
-        else:
-            errors = region_serializer.errors
-            return Response({'errors': errors}, status=400)
+    region_payload = {
+        "user_uid": uid,
+        "region": region
+    }
+    region_serializer = regionSerializer(data=region_payload)
+    if region_serializer.is_valid():
+        region_serializer.save()
+    else:
+        errors = region_serializer.errors
+        return Response({'errors': errors}, status=400)
 
 
     return Response(
