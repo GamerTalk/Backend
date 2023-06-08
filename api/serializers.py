@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Users, english, spanish, french, german, japanese, chinese, korean, systems, genre, messages
+from base.models import Users, english, spanish, french, german, japanese, chinese, korean, systems, genre, messages, region
 
 
 class UsersSerializer(serializers.ModelSerializer):
@@ -55,4 +55,9 @@ class genraSerializer(serializers.ModelSerializer):
 class messagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = messages
+        fields = '__all__'
+
+class regionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = region
         fields = '__all__'

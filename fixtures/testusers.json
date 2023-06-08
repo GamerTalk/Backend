@@ -16,7 +16,8 @@
       },
       "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
       "user_systems": ["PC", "PlayStation"],
-      "user_genre": ["survival", "shooters"]
+      "user_genre": ["survival", "shooters"],
+      "user_region": "north america"
     }
   },
   {
@@ -59,6 +60,11 @@
     "pk": 2,
     "fields": { "user_uid": "delete me", "genre": "survival" }
   },
+  {
+    "model": "base.region",
+    "pk": 1,
+    "fields": { "user_uid": "delete me", "region": "north america" }
+  },
 
   {
     "model": "base.users",
@@ -77,7 +83,8 @@
       },
       "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken",
       "user_systems": ["PC", "Xbox"],
-      "user_genre": ["fighting", "shooters"]
+      "user_genre": ["fighting", "shooters"],
+      "user_region": "asia"
     }
   },
   {
@@ -115,6 +122,11 @@
     "pk": 4,
     "fields": { "user_uid": "TESTUSER2", "genre": "fighting" }
   },
+  {
+    "model": "base.region",
+    "pk": 2,
+    "fields": { "user_uid": "TESTUSER2", "region": "asia" }
+  },
 
   {
     "model": "base.users",
@@ -133,7 +145,8 @@
       },
       "currently_playing": "I am currently playing Among Us and Fall Guys.",
       "user_systems": ["Xbox", "Switch"],
-      "user_genre": ["party games"]
+      "user_genre": ["party games"],
+      "user_region": "asia"
     }
   },
   {
@@ -171,6 +184,11 @@
     "pk": 5,
     "fields": { "user_uid": "TESTUSER3", "genre": "party games" }
   },
+  {
+    "model": "base.region",
+    "pk": 3,
+    "fields": { "user_uid": "TESTUSER3", "region": "asia" }
+  },
 
   {
     "model": "base.users",
@@ -186,7 +204,8 @@
       },
       "currently_playing": "I am currently playing Among Us and Fall Guys.",
       "user_systems": ["Switch", "PlayStation"],
-      "user_genre": ["party games"]
+      "user_genre": ["party games"],
+      "user_region": "europe"
     }
   },
   {
@@ -218,5 +237,10 @@
     "model": "base.genre",
     "pk": 6,
     "fields": { "user_uid": "TESTUSER4", "genre": "party games" }
+  },
+  {
+    "model": "base.region",
+    "pk": 4,
+    "fields": { "user_uid": "TESTUSER4", "region": "europe" }
   }
 ]

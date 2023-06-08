@@ -11,6 +11,7 @@ class Users(models.Model):
     currently_playing = models.TextField(default=str)
     user_systems = models.JSONField(default=list)
     user_genre = models.JSONField(default=list)
+    user_region = models.TextField(default=str)
 
 class english(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
@@ -47,6 +48,10 @@ class systems(models.Model):
 class genre(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     genre = models.TextField()
+
+class region(models.Model):
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
+    region = models.TextField()
 
 class messages(models.Model):
     sender = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid', related_name='sender_uid')
