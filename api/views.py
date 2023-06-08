@@ -126,8 +126,8 @@ def NewUser(request):
 
 # sample body
 # {
-#     "uid": "delete me",
-#     "username": "GodSlayerXD",
+#     "uid": "TESTUSER5",
+#     "username": "TESTUSER5",
 #     "about_me": "I was born in a log cabin.",
 #     "fluent": ["english", "spanish"],
 #     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],

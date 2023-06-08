@@ -107,7 +107,7 @@
             "date_of_birth": "2023-02-23",
             "about_me": "I was created to be test user 3.",
             "languages": {
-                "fluent": ["korean, chinese"],
+                "fluent": ["korean", "chinese"],
                 "learning": [
                     {"level": 1, "language": "english"},
                     {"level": 3, "language": "japanese"}
@@ -152,7 +152,7 @@
             "date_of_birth": "1977-02-23",
             "about_me": "I was created to be test user 4.",
             "languages": {
-                "fluent": ["french, english"],
+                "fluent": ["french", "english"],
                 "learning": [
                     {"level": 1, "language": "spanish"}
                 ]
