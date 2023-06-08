@@ -75,14 +75,13 @@ def filterUsers(request):
         # systems:["playstation", "switch"]
         # genre:["shooters", "RPG"]
         # language:japanese
-        # region: ["north america"] 
-        # endregion <- dont use this
+        # regions: ["north america"] 
     # }
     user_agent = request.headers
     genre = user_agent.get("genre")
     systems = user_agent.get("systems")
     language = user_agent.get("language")
-    regions = user_agent.get("region")
+    regions = user_agent.get("regions")
 
 
     search_query = {}
@@ -93,11 +92,11 @@ def filterUsers(request):
     if systems:
         search_query["systems"] = json.loads(systems)
 
-    if language:
-        search_query["language"] = language
+    if json.loads(language):
+        search_query["language"] = json.loads(language)
 
     if regions:
-        search_query["regions"] = regions
+        search_query["regions"] = json.loads(regions)
 
     genre_conditions = Q()
     for genre in search_query.get("genre", []):
