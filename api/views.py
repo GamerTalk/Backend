@@ -301,4 +301,112 @@ def EditUser(request):
 
     Users.objects.filter(uid=uid).delete()
 
+    # structures the data how the Users table wants the payload
+    users_data = {
+        "uid": uid,
+        "username": username,
+        "date_of_birth": date_of_birth,
+        "about_me": about_me,
+        "languages": languages_column,
+        "currently_playing": currently_playing,
+        "user_systems": user_systems,
+        "user_genre": genre,
+        "user_region": region,
+    }
+
+# added the user to the Users table
+    user_serializer = UsersSerializer(data=users_data)
+    if user_serializer.is_valid():
+        user_serializer.save()
+    else:
+        errors = user_serializer.errors
+        return Response({'errors': errors}, status=400)
+
+
+# adds the languages the user is fluent in to the appropriate language tables
+    for item in fluent:
+        language = item.lower()
+        if language in model_map:
+            ModelClass, SerializerClass = model_map[language]
+            payload = {
+                "user_uid": uid,
+                "level": 4
+            }
+            serializer = SerializerClass(data=payload)
+            if serializer.is_valid():
+                serializer.save()
+            else:
+                errors = serializer.errors
+                return Response({'errors': errors}, status=400)
+
+# adds the languages the user is learning in to the appropriate language tables
+    for item in learning:
+        language = item["language"].lower()
+        level = item["level"]
+        if language in model_map:
+            ModelClass, SerializerClass = model_map[language]
+            payload = {
+                "user_uid": uid,
+                "level": level
+            }
+            serializer = SerializerClass(data=payload)
+            if serializer.is_valid():
+                serializer.save()
+            else:
+                errors = serializer.errors
+                return Response({'errors': errors}, status=400)
+            
+# adds the system the user plays on to the systems table
+    for system in user_systems:
+        payload = {
+            "user_uid": uid,
+            "system": system
+        }
+        serializer = systemsSerializer(data=payload)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            errors = serializer.errors
+            return Response({'errors': errors}, status=400)
+            
+# adds the genre the user plays on to the genre table
+    for single_genre in genre:
+        payload = {
+            "user_uid": uid,
+            "genre": single_genre
+        }
+        serializer = genraSerializer(data=payload)
+        if serializer.is_valid():
+            serializer.save()
+        else:
+            errors = serializer.errors
+            return Response({'errors': errors}, status=400)
+        
+    region_payload = {
+        "user_uid": uid,
+        "region": region
+    }
+    region_serializer = regionSerializer(data=region_payload)
+    if region_serializer.is_valid():
+        region_serializer.save()
+    else:
+        errors = region_serializer.errors
+        return Response({'errors': errors}, status=400)
+
+
+    return Response(
+        {
+            "uid": uid,
+            "username": username,
+            "about_me": about_me,
+            "fluent": fluent,
+            "learning": learning,
+            "date_of_birth": date_of_birth,
+            "languages_column": languages_column,
+            "systems": user_systems,
+            "genre": genre,
+            "region": region
+        }
+    )
+
     return Response(True)
