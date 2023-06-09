@@ -271,7 +271,7 @@ def NewUser(request):
         }
     )
 
-@api_view(["POST"])
+@api_view(["PATCH"])
 def EditUser(request):
     # sample body
     # {
@@ -408,5 +408,3 @@ def EditUser(request):
             "region": region
         }
     )
-
-    return Response(True)
