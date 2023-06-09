@@ -271,3 +271,34 @@ def NewUser(request):
         }
     )
 
+@api_view(["POST"])
+def EditUser(request):
+    # sample body
+    # {
+    #     "uid": "TESTUSER5",
+    #     "username": "TESTUSER5",
+    #     "about_me": "I was born in a log cabin.",
+    #     "fluent": ["english", "spanish"],
+    #     "learning": [{"language":"german", "level": 2}, {"language":"japanese", "level": 3}],
+    #     "date_of_birth": "1999-01-01",
+    #     "systems": ["playstation","PC"],
+    #     "genre": ["shooters", "survival", "fighting"],
+    #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
+    #     "region": "north america"
+    # }
+
+    uid = request.data["uid"]
+    username = request.data["username"]
+    about_me = request.data["about_me"]
+    fluent = request.data["fluent"]
+    learning = request.data["learning"]
+    date_of_birth = request.data["date_of_birth"]
+    user_systems = request.data["systems"]
+    genre = request.data["genre"]
+    currently_playing = request.data["currently_playing"]
+    region = request.data["region"]
+    languages_column = {"fluent": fluent, "learning": learning}
+
+    Users.objects.filter(uid=uid).delete()
+
+    return Response(True)
