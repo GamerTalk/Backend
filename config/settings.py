@@ -160,4 +160,5 @@ CORS_ALLOW_HEADERS = [
     'systems',
     'genre',
     'language',
+    'regions'
 ]
