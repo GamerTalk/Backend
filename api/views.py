@@ -73,8 +73,8 @@ def filterUsers(request):
 #     sample of what the header must look like (probably an object format with axios)
     # {
         # systems:["playstation", "switch"]
-        # genre:["shooters", "RPG"]
-        # language:japanese
+        # genre:["shooters", "rpg"]
+        # language: japanese
         # regions: ["north america"] 
     # }
     user_agent = request.headers
@@ -162,8 +162,8 @@ def NewUser(request):
 #     "fluent": ["english", "spanish"],
 #     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],
 #     "date_of_birth": "1999-01-01",
-#     "systems": ["playstation","PC"],
-#     "genre": ["FPS", "survival"],
+#     "systems": ["playstation","pc"],
+#     "genre": ["shooters", "survival"],
 #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
 #     "region": "north america"
 # }
@@ -297,7 +297,7 @@ def EditUser(request):
     #     "fluent": ["english", "spanish"],
     #     "learning": [{"language":"german", "level": 2}, {"language":"japanese", "level": 3}],
     #     "date_of_birth": "1999-01-01",
-    #     "systems": ["playstation","PC"],
+    #     "systems": ["playstation","pc"],
     #     "genre": ["shooters", "survival", "fighting"],
     #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
     #     "region": "north america"

@@ -15,7 +15,7 @@
         ]
       },
       "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
-      "user_systems": ["PC", "PlayStation"],
+      "user_systems": ["pc", "playstation"],
       "user_genre": ["survival", "shooters"],
       "user_region": "north america"
     }
@@ -43,12 +43,12 @@
   {
     "model": "base.systems",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "system": "PlayStation" }
+    "fields": { "user_uid": "delete me", "system": "playstation" }
   },
   {
     "model": "base.systems",
     "pk": 2,
-    "fields": { "user_uid": "delete me", "system": "PC" }
+    "fields": { "user_uid": "delete me", "system": "pc" }
   },
   {
     "model": "base.genre",
@@ -82,7 +82,7 @@
         ]
       },
       "currently_playing": "I am currently playing COD MW2, Fortnite, and some tekken",
-      "user_systems": ["PC", "Xbox"],
+      "user_systems": ["pc", "xbox"],
       "user_genre": ["fighting", "shooters"],
       "user_region": "asia"
     }
@@ -105,12 +105,12 @@
   {
     "model": "base.systems",
     "pk": 3,
-    "fields": { "user_uid": "TESTUSER2", "system": "PC" }
+    "fields": { "user_uid": "TESTUSER2", "system": "pc" }
   },
   {
     "model": "base.systems",
     "pk": 4,
-    "fields": { "user_uid": "TESTUSER2", "system": "Xbox" }
+    "fields": { "user_uid": "TESTUSER2", "system": "xbox" }
   },
   {
     "model": "base.genre",
@@ -144,7 +144,7 @@
         ]
       },
       "currently_playing": "I am currently playing Among Us and Fall Guys.",
-      "user_systems": ["Xbox", "Switch"],
+      "user_systems": ["xbox", "switch"],
       "user_genre": ["party games"],
       "user_region": "asia"
     }
@@ -172,12 +172,12 @@
   {
     "model": "base.systems",
     "pk": 6,
-    "fields": { "user_uid": "TESTUSER3", "system": "Xbox" }
+    "fields": { "user_uid": "TESTUSER3", "system": "xbox" }
   },
   {
     "model": "base.systems",
     "pk": 7,
-    "fields": { "user_uid": "TESTUSER3", "system": "Switch" }
+    "fields": { "user_uid": "TESTUSER3", "system": "switch" }
   },
   {
     "model": "base.genre",
@@ -203,7 +203,7 @@
         "learning": [{ "level": 1, "language": "spanish" }]
       },
       "currently_playing": "I am currently playing Among Us and Fall Guys.",
-      "user_systems": ["Switch", "PlayStation"],
+      "user_systems": ["switch", "playstation"],
       "user_genre": ["party games"],
       "user_region": "europe"
     }
@@ -226,12 +226,12 @@
   {
     "model": "base.systems",
     "pk": 8,
-    "fields": { "user_uid": "TESTUSER4", "system": "Switch" }
+    "fields": { "user_uid": "TESTUSER4", "system": "switch" }
   },
   {
     "model": "base.systems",
     "pk": 9,
-    "fields": { "user_uid": "TESTUSER4", "system": "PlayStation" }
+    "fields": { "user_uid": "TESTUSER4", "system": "playstation" }
   },
   {
     "model": "base.genre",
