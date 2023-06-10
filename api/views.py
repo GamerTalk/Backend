@@ -82,8 +82,6 @@ def filterUsers(request):
     systems = user_agent.get("systems")
     language = user_agent.get("language")
     regions = user_agent.get("regions")
-    print(language)
-    print(type(language))
 
     search_query = {}
 
@@ -120,13 +118,24 @@ def filterUsers(request):
     serialized_results = json.loads(serializers.serialize('json', results))
     # serialized_results = serializers.serialize('json', results, fields=('uid','username', 'genre__genre'))
 
+    # remove duplicate result
+    filtered_serialized_results = []
+    userLookup = {}
+
+    for user in serialized_results:
+        try:
+            if userLookup[user["fields"]["uid"]]:
+                z=1
+        except KeyError:
+            filtered_serialized_results.append(user)
+            userLookup[user["fields"]["uid"]] = True
+
+
     #test that the user speaks the target language
     try:
         if search_query["language"]:
-            print('hit')
             sendUsers = []
-            for user in serialized_results:
-                print(search_query["language"], user["fields"]["languages"]["fluent"][0])
+            for user in filtered_serialized_results:
                 if search_query["language"] in user["fields"]["languages"]["fluent"]:
                     sendUsers.append(user['fields'])
             # print('🍟🍒😂',sendUsers)
@@ -134,7 +143,7 @@ def filterUsers(request):
     except KeyError:
         def removeFields(x):
             return x['fields']
-        return Response(map(removeFields, serialized_results))
+        return Response(map(removeFields, filtered_serialized_results))
 
 
 
