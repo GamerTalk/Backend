@@ -91,9 +91,12 @@ def filterUsers(request):
 
     if systems:
         search_query["systems"] = json.loads(systems)
-
-    if json.loads(language):
-        search_query["language"] = json.loads(language)
+    try:
+        if json.loads(language):
+            search_query["language"] = json.loads(language)
+    except TypeError:
+        # Do nothing
+        x = 1
 
     if regions:
         search_query["regions"] = json.loads(regions)
