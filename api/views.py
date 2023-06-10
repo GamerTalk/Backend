@@ -82,7 +82,8 @@ def filterUsers(request):
     systems = user_agent.get("systems")
     language = user_agent.get("language")
     regions = user_agent.get("regions")
-
+    print(language)
+    print(type(language))
 
     search_query = {}
 
@@ -92,8 +93,9 @@ def filterUsers(request):
     if systems:
         search_query["systems"] = json.loads(systems)
     try:
-        if json.loads(language):
-            search_query["language"] = json.loads(language)
+        if language:
+            search_query["language"] = language
+            print(search_query["language"])
     except TypeError:
         # Do nothing
         x = 1
@@ -121,8 +123,10 @@ def filterUsers(request):
     #test that the user speaks the target language
     try:
         if search_query["language"]:
+            print('hit')
             sendUsers = []
             for user in serialized_results:
+                print(search_query["language"], user["fields"]["languages"]["fluent"][0])
                 if search_query["language"] in user["fields"]["languages"]["fluent"]:
                     sendUsers.append(user['fields'])
             # print('🍟🍒😂',sendUsers)
