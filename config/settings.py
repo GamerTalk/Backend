@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'dotenv',
     'rest_framework',
     'base',
-    'chat',
     'corsheaders'
 ]
 
