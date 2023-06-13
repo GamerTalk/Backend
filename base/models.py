@@ -62,3 +62,11 @@ class messages(models.Model):
     def __str__(self):
         return f"From: {self.sender.uid} | To: {self.receiver.uid}"
 
+class posts(models.Model):
+    sender = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
+    time_of_message = models.TimeField()
+    message = models.TextField()
+
+    def __str__(self):
+        return f"From: {self.sender.uid} | message: {self.message}"
+
