@@ -152,8 +152,14 @@ def filterUsers(request):
 
 
 @api_view(["POST"])
-def NewUser(request):
+def NewPost(request):
+    username = request.data["username"]
+    message = request.data["message"]
+    time_of_message = request.data["timestamp"]
 
+
+@api_view(["POST"])
+def NewUser(request):
 # sample body
 # {
 #     "uid": "TESTUSER5",

@@ -9,4 +9,5 @@ urlpatterns = [
     # path('all-users/', views.allUsers),
     path('filter-users/', views.filterUsers),
     path('user-info/', views.userInfo),
+    path('new-post/', views.NewPost),
 ]
