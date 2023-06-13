@@ -37,7 +37,6 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -165,6 +164,3 @@ CORS_ALLOW_HEADERS = [
     'language',
     'regions'
 ]
-
-# Daphne
-ASGI_APPLICATION = "config.asgi.application"
