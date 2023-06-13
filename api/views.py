@@ -14,7 +14,8 @@ from base.models import (
     systems,
     genre,
     messages,
-    region
+    region,
+    posts
 )
 from .serializers import (
     UsersSerializer,
@@ -28,7 +29,8 @@ from .serializers import (
     systemsSerializer,
     genraSerializer,
     messagesSerializer,
-    regionSerializer
+    regionSerializer,
+    postsSerializer
 )
 import json
 
@@ -152,8 +154,29 @@ def filterUsers(request):
 
 
 @api_view(["POST"])
-def NewUser(request):
+def NewPost(request):
+    uid = request.data["uid"]
+    message = request.data["message"]
+    time_of_message = request.data["time_of_message"]
 
+    new_post_payload = {
+        'sender': uid,
+        'time_of_message': time_of_message,
+        'message': message
+    }
+
+    new_post_serializer = postsSerializer(data=new_post_payload)
+
+    if new_post_serializer.is_valid():
+        new_post_serializer.save()
+    else:
+        errors = new_post_serializer.errors
+        return Response({'errors': errors}, status=400)
+
+    return Response(new_post_payload)
+
+@api_view(["POST"])
+def NewUser(request):
 # sample body
 # {
 #     "uid": "TESTUSER5",
