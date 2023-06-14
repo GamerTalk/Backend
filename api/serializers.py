@@ -63,6 +63,8 @@ class regionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class postsSerializer(serializers.ModelSerializer):
+    sender = UsersSerializer()
+
     class Meta:
         model = posts
         fields = '__all__'
