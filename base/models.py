@@ -64,7 +64,7 @@ class messages(models.Model):
 
 class posts(models.Model):
     sender = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
-    time_of_message = models.CharField(max_length=22)
+    time_of_message = models.CharField(max_length=100)
     message = models.TextField()
 
     def __str__(self):
