@@ -63,8 +63,31 @@ class regionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class postsSerializer(serializers.ModelSerializer):
-    sender = UsersSerializer()
+    sender_uid = serializers.CharField(source='sender.uid', max_length=100, read_only=True)
+    sender_data = serializers.SerializerMethodField()
 
     class Meta:
         model = posts
         fields = '__all__'
+
+    def get_sender_data(self, instance):
+        sender_uid = instance.sender.uid
+        try:
+            sender = Users.objects.get(uid=sender_uid)
+            sender_serializer = UsersSerializer(sender)
+            return sender_serializer.data
+        except Users.DoesNotExist:
+            return {}
+
+    def create(self, validated_data):
+        sender_uid = validated_data.pop('sender')
+
+        try:
+            sender = Users.objects.get(uid=sender_uid)
+        except Users.DoesNotExist:
+            raise serializers.ValidationError("Invalid sender UID")
+
+        validated_data['sender'] = sender
+        post = posts.objects.create(**validated_data)
+
+        return post

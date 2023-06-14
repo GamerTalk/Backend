@@ -13,6 +13,10 @@ class Users(models.Model):
     user_genre = models.JSONField(default=list)
     user_region = models.TextField(default=str)
 
+    
+    def __str__(self):
+        return self.uid
+
 class english(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
