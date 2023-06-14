@@ -187,7 +187,7 @@ def NewPost(request):
 @api_view(["GET"])
 def GetPosts(request):
 
-    all_posts_query = posts.objects.select_related('sender').all()
+    all_posts_query = posts.objects.select_related('sender').order_by('-id').all()
     all_posts = postsSerializer(all_posts_query, many=True)
     return Response(all_posts.data)
 
