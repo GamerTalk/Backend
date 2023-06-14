@@ -10,4 +10,5 @@ urlpatterns = [
     path('filter-users/', views.filterUsers),
     path('user-info/', views.userInfo),
     path('new-post/', views.NewPost),
+    path('get-posts/', views.GetPosts),
 ]

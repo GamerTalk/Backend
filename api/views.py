@@ -155,6 +155,15 @@ def filterUsers(request):
 
 @api_view(["POST"])
 def NewPost(request):
+
+    #sample body
+    # time of message uses ISO formate of javascript date
+    # https://www.w3schools.com/js/js_date_formats.asp
+    # {
+    #     "uid": "TESTUSER2",
+    #     "message":"Hello everyone",
+    #     "time_of_message": "2015-03-25T12:00:00Z" 
+    # }
     uid = request.data["uid"]
     message = request.data["message"]
     time_of_message = request.data["time_of_message"]
@@ -174,6 +183,13 @@ def NewPost(request):
         return Response({'errors': errors}, status=400)
 
     return Response(new_post_payload)
+
+@api_view(["GET"])
+def GetPosts(request):
+
+    all_posts_query = posts.objects.all()
+    all_posts = postsSerializer(all_posts_query, many=True)
+    return Response(all_posts.data)
 
 @api_view(["POST"])
 def NewUser(request):
