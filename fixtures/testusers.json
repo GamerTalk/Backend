@@ -23,12 +23,12 @@
   {
     "model": "base.english",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "level": 4 }
+    "fields": { "user_uid": "delete me", "level": 6 }
   },
   {
     "model": "base.spanish",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "level": 4 }
+    "fields": { "user_uid": "delete me", "level": 6 }
   },
   {
     "model": "base.japanese",
@@ -90,7 +90,7 @@
   {
     "model": "base.japanese",
     "pk": 2,
-    "fields": { "user_uid": "TESTUSER2", "level": 4 }
+    "fields": { "user_uid": "TESTUSER2", "level": 6 }
   },
   {
     "model": "base.english",
@@ -152,12 +152,12 @@
   {
     "model": "base.chinese",
     "pk": 1,
-    "fields": { "user_uid": "TESTUSER3", "level": 4 }
+    "fields": { "user_uid": "TESTUSER3", "level": 6 }
   },
   {
     "model": "base.korean",
     "pk": 1,
-    "fields": { "user_uid": "TESTUSER3", "level": 4 }
+    "fields": { "user_uid": "TESTUSER3", "level": 6 }
   },
   {
     "model": "base.english",
@@ -211,12 +211,12 @@
   {
     "model": "base.french",
     "pk": 1,
-    "fields": { "user_uid": "TESTUSER4", "level": 4 }
+    "fields": { "user_uid": "TESTUSER4", "level": 6 }
   },
   {
     "model": "base.english",
     "pk": 4,
-    "fields": { "user_uid": "TESTUSER4", "level": 4 }
+    "fields": { "user_uid": "TESTUSER4", "level": 6 }
   },
   {
     "model": "base.spanish",

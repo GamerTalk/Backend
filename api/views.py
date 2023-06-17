@@ -247,7 +247,7 @@ def NewUser(request):
             ModelClass, SerializerClass = model_map[language]
             payload = {
                 "user_uid": uid,
-                "level": 4
+                "level": 6
             }
             serializer = SerializerClass(data=payload)
             if serializer.is_valid():
@@ -385,7 +385,7 @@ def EditUser(request):
             ModelClass, SerializerClass = model_map[language]
             payload = {
                 "user_uid": uid,
-                "level": 4
+                "level": 6
             }
             serializer = SerializerClass(data=payload)
             if serializer.is_valid():
