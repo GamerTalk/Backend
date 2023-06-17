@@ -155,10 +155,16 @@ def filterUsers(request):
     # return Response(search_query)
 
 
-# @api_view(["GET"])
-# def UserFlashcards(request):
-#     user_agent = request.headers
-#     genre = user_agent.get("genre")
+@api_view(["GET"])
+def UserFlashcards(request):
+    # card_id = user_agent.get("card_id")
+    user_agent = request.headers
+    user_uid = user_agent.get("uid")
+
+    user_cards_query = flashcards.objects.filter(Q(user_uid=user_uid)).order_by('-id')
+    user_cards = flashCardsSerialized(user_cards_query, many=True)
+
+    return Response(user_cards.data)
 
 @api_view(["POST"])
 def NewFlashcard(request):
