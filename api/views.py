@@ -162,6 +162,12 @@ def filterUsers(request):
 
 @api_view(["POST"])
 def NewFlashcard(request):
+    # Sample body
+    # {
+    #     "user_uid": "TESTUSER2",
+    #     "front":"strength",
+    #     "back": "力（ちから）" 
+    # }
     user_uid = request.data["user_uid"]
     front = request.data["front"]
     back = request.data["back"]
