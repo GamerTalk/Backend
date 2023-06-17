@@ -13,4 +13,5 @@ urlpatterns = [
     path('get-posts/', views.GetPosts),
     path('new-flashcard/', views.NewFlashcard),
     path('get-flashcards/', views.UserFlashcards),
+    path('delete-flashcard/', views.DeleteFlashcard),
 ]
