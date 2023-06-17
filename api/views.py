@@ -194,6 +194,20 @@ def NewFlashcard(request):
 
     return Response(new_flashcard_payload)
 
+@api_view(["DELETE"])
+def DeleteFlashcard(request):
+    #sample body
+    # card_id will be the id number of the card you want to delete 
+    # {
+    # "user_uid": "TESTUSER2",
+    # "card_id": 2
+    # }
+    user_uid = request.data["user_uid"]
+    card_id = request.data["card_id"]
+    flashcards.objects.filter(Q(user_uid=user_uid) & Q(id=card_id)).delete()
+
+    return Response(True)
+
 @api_view(["POST"])
 def NewPost(request):
 
