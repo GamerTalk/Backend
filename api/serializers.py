@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Users, english, spanish, french, german, japanese, chinese, korean, systems, genre, messages, region, posts
+from base.models import Users, english, spanish, french, german, japanese, chinese, korean, systems, genre, messages, region, posts, flashcards
 
 
 class UsersSerializer(serializers.ModelSerializer):
@@ -91,3 +91,8 @@ class postsSerializer(serializers.ModelSerializer):
         post = posts.objects.create(**validated_data)
 
         return post
+    
+class flashCardSerialized(serializers.ModelSerializer):
+    class Meta:
+        model = flashcards
+        fields = '__all__'
