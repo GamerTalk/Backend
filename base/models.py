@@ -74,3 +74,10 @@ class posts(models.Model):
     def __str__(self):
         return f"From: {self.sender.uid} | message: {self.message}"
 
+class flashcards(models.Model):
+    user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
+    front = models.TextField()
+    back = models.TextField()
+
+    def __str__(self):
+        return f"Created by: {self.user_uid} | front: {self.front} | back: {self.back}"
