@@ -11,4 +11,5 @@ urlpatterns = [
     path('user-info/', views.userInfo),
     path('new-post/', views.NewPost),
     path('get-posts/', views.GetPosts),
+    path('new-flashcard/', views.NewFlashcard),
 ]

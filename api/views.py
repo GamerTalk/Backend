@@ -15,7 +15,8 @@ from base.models import (
     genre,
     messages,
     region,
-    posts
+    posts,
+    flashcards
 )
 from .serializers import (
     UsersSerializer,
@@ -30,7 +31,8 @@ from .serializers import (
     genraSerializer,
     messagesSerializer,
     regionSerializer,
-    postsSerializer
+    postsSerializer,
+    flashCardsSerialized
 )
 import json
 
@@ -152,6 +154,33 @@ def filterUsers(request):
     # print(search_query)
     # return Response(search_query)
 
+
+# @api_view(["GET"])
+# def UserFlashcards(request):
+#     user_agent = request.headers
+#     genre = user_agent.get("genre")
+
+@api_view(["POST"])
+def NewFlashcard(request):
+    user_uid = request.data["user_uid"]
+    front = request.data["front"]
+    back = request.data["back"]
+
+    new_flashcard_payload = {
+        'user_uid': user_uid,
+        'front': front,
+        'back': back
+    }
+
+    new_flashcard_serializer = flashCardsSerialized(data=new_flashcard_payload)
+
+    if new_flashcard_serializer.is_valid():
+        new_flashcard_serializer.save()
+    else:
+        errors = new_flashcard_serializer.errors
+        return Response({'errors': errors}, status=400)
+
+    return Response(new_flashcard_payload)
 
 @api_view(["POST"])
 def NewPost(request):

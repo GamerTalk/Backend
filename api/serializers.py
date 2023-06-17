@@ -92,7 +92,7 @@ class postsSerializer(serializers.ModelSerializer):
 
         return post
     
-class flashCardSerialized(serializers.ModelSerializer):
+class flashCardsSerialized(serializers.ModelSerializer):
     class Meta:
         model = flashcards
         fields = '__all__'
