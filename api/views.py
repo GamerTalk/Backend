@@ -161,7 +161,7 @@ def UserFlashcards(request):
     user_agent = request.headers
     user_uid = user_agent.get("uid")
 
-    user_cards_query = flashcards.objects.filter(Q(user_uid=user_uid))
+    user_cards_query = flashcards.objects.filter(Q(user_uid=user_uid)).order_by('-id')
     user_cards = flashCardsSerialized(user_cards_query, many=True)
 
     return Response(user_cards.data)
