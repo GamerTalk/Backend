@@ -12,7 +12,7 @@ class Users(models.Model):
     user_systems = models.JSONField(default=list)
     user_genre = models.JSONField(default=list)
     user_region = models.TextField(default=str)
-
+    profile_picture_url = models.TextField(default=str)
     
     def __str__(self):
         return self.uid
