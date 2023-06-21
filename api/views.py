@@ -248,19 +248,20 @@ def GetPosts(request):
 
 @api_view(["POST"])
 def NewUser(request):
-# sample body
-# {
-#     "uid": "TESTUSER5",
-#     "username": "TESTUSER5",
-#     "about_me": "I was born in a log cabin.",
-#     "fluent": ["english", "spanish"],
-#     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],
-#     "date_of_birth": "1999-01-01",
-#     "systems": ["playstation","pc"],
-#     "genre": ["shooters", "survival"],
-#     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
-#     "region": "north america"
-# }
+    # sample body
+    # {
+    #     "uid": "TESTUSER5",
+    #     "username": "TESTUSER5",
+    #     "about_me": "I was born in a log cabin.",
+    #     "fluent": ["english", "spanish"],
+    #     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],
+    #     "date_of_birth": "1999-01-01",
+    #     "systems": ["playstation","pc"],
+    #     "genre": ["shooters", "survival"],
+    #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
+    #     "region": "north america"
+    #     "profile_picture_url": urlstring
+    # }
     uid = request.data["uid"]
     username = request.data["username"]
     about_me = request.data["about_me"]
