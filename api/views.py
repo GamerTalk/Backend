@@ -248,19 +248,20 @@ def GetPosts(request):
 
 @api_view(["POST"])
 def NewUser(request):
-# sample body
-# {
-#     "uid": "TESTUSER5",
-#     "username": "TESTUSER5",
-#     "about_me": "I was born in a log cabin.",
-#     "fluent": ["english", "spanish"],
-#     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],
-#     "date_of_birth": "1999-01-01",
-#     "systems": ["playstation","pc"],
-#     "genre": ["shooters", "survival"],
-#     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
-#     "region": "north america"
-# }
+    # sample body
+    # {
+    #     "uid": "TESTUSER5",
+    #     "username": "TESTUSER5",
+    #     "about_me": "I was born in a log cabin.",
+    #     "fluent": ["english", "spanish"],
+    #     "learning": [{"language":"german", "level": 1}, {"language":"japanese", "level": 3}],
+    #     "date_of_birth": "1999-01-01",
+    #     "systems": ["playstation","pc"],
+    #     "genre": ["shooters", "survival"],
+    #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
+    #     "region": "north america"
+    #     "profile_picture_url": urlstring
+    # }
     uid = request.data["uid"]
     username = request.data["username"]
     about_me = request.data["about_me"]
@@ -271,6 +272,7 @@ def NewUser(request):
     genre = request.data["genre"]
     currently_playing = request.data["currently_playing"]
     region = request.data["region"]
+    profile_picture_url = request.data["profile_picture_url"]
     languages_column = {"fluent": fluent, "learning": learning}
 
 # structures the data how the Users table wants the payload
@@ -284,6 +286,7 @@ def NewUser(request):
         "user_systems": user_systems,
         "user_genre": genre,
         "user_region": region,
+        "profile_picture_url": profile_picture_url,
     }
 
 # added the user to the Users table
@@ -394,7 +397,8 @@ def EditUser(request):
     #     "systems": ["playstation","pc"],
     #     "genre": ["shooters", "survival", "fighting"],
     #     "currently_playing": "I am currently playing COD MW2, Fortnite, and some Ark Survival",
-    #     "region": "north america"
+    #     "region": "north america",
+    #     "profile_picture_url": urlstring
     # }
 
     uid = request.data["uid"]
@@ -407,6 +411,7 @@ def EditUser(request):
     user_genre = request.data["genre"]
     currently_playing = request.data["currently_playing"]
     user_region = request.data["region"]
+    profile_picture_url = request.data["profile_picture_url"]
     languages_column = {"fluent": fluent, "learning": learning}
 
     # Delete old data from all other tables
@@ -452,6 +457,7 @@ def EditUser(request):
     user_entry.user_systems = user_systems
     user_entry.user_genre = user_genre
     user_entry.user_region = user_region
+    user_entry.profile_picture_url = profile_picture_url
     user_entry.save()
     serializer = UsersSerializer(user_entry)
 
