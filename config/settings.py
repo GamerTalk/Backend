@@ -35,8 +35,8 @@ if os.getenv('ENVIRONMENT') == 'development':
     DEBUG = True
 
 # this should be limited to only the frontend when we get the chance.
-# ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['.gamertalk.onrender.com', 'gamertalk.onrender.com']
+ALLOWED_HOSTS = ["*"]
+# ALLOWED_HOSTS = ['.gamertalk.onrender.com', 'gamertalk.onrender.com']
 
 
 # Application definition
