@@ -36,6 +36,7 @@ if os.getenv('ENVIRONMENT') == 'development':
 
 # this should be limited to only the frontend when we get the chance.
 ALLOWED_HOSTS = ["*"]
+# not working
 # ALLOWED_HOSTS = ['.gamertalk.onrender.com', 'gamertalk.onrender.com']
 
 
