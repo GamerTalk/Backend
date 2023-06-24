@@ -34,6 +34,7 @@ DEBUG = False
 if os.getenv('ENVIRONMENT') == 'development':
     DEBUG = True
 
+# this should be limited to only the frontend when we get the chance.
 ALLOWED_HOSTS = ["*"]
 
 
