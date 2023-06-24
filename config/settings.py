@@ -34,7 +34,7 @@ DEBUG = False
 if os.getenv('ENVIRONMENT') == 'development':
     DEBUG = True
 
-ALLOWED_HOSTS = [".https://gamertalk.onrender.com"]
+ALLOWED_HOSTS = [".gamertalk.onrender.com"]
 
 
 # Application definition
