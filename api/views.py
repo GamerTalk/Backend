@@ -76,10 +76,10 @@ def filterUsers(request):
 
 #     sample of what the header must look like (probably an object format with axios)
     # {
-        # systems:["playstation", "switch"]
-        # genre:["shooters", "rpg"]
-        # language: japanese
-        # regions: ["north america"] 
+    #     systems:["playstation", "switch"]
+    #     genre:["shooters", "rpg"]
+    #     language: japanese
+    #     regions: ["north america"] 
     # }
     user_agent = request.headers
     genre = user_agent.get("genre")
