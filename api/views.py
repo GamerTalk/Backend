@@ -439,13 +439,7 @@ def EditUser(request):
         "user_region": user_region,
     }
 
-# added the user to the Users table
-    # user_serializer = UsersSerializer(data=users_data)
-    # if user_serializer.is_valid():
-    #     user_serializer.save()
-    # else:
-    #     errors = user_serializer.errors
-    #     return Response({'errors': errors}, status=400)
+    # added the user to the Users table
     try:
         user_entry = Users.objects.get(uid=uid)
     except Users.DoesNotExist:
@@ -461,7 +455,7 @@ def EditUser(request):
     user_entry.save()
     serializer = UsersSerializer(user_entry)
 
-# adds the languages the user is fluent in to the appropriate language tables
+    # adds the languages the user is fluent in to the appropriate language tables
     for item in fluent:
         language = item.lower()
         if language in model_map:
@@ -477,7 +471,7 @@ def EditUser(request):
                 errors = fluent_serializer.errors
                 return Response({'errors': errors}, status=400)
 
-# adds the languages the user is learning in to the appropriate language tables
+    # adds the languages the user is learning in to the appropriate language tables
     for item in learning:
         language = item["language"].lower()
         level = item["level"]
@@ -494,7 +488,7 @@ def EditUser(request):
                 errors = learning_serializer.errors
                 return Response({'errors': errors}, status=400)
             
-# adds the system the user plays on to the systems table
+    # adds the system the user plays on to the systems table
     for system in user_systems:
         payload = {
             "user_uid": uid,
@@ -507,7 +501,7 @@ def EditUser(request):
             errors = system_serializer.errors
             return Response({'errors': errors}, status=400)
             
-# adds the genre the user plays on to the genre table
+    # adds the genre the user plays on to the genre table
     for single_genre in user_genre:
         payload = {
             "user_uid": uid,
@@ -533,3 +527,12 @@ def EditUser(request):
 
 
     return Response(serializer.data)
+
+@api_view(["DELETE"])
+def deleteUser(request):
+    uid = request.data["uid"]
+
+    try:
+        Users.objects.filter(uid=uid).delete()
+    except Users.DoesNotExist:
+        return Response("User does not exist")
