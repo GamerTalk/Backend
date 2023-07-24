@@ -534,5 +534,6 @@ def deleteUser(request):
 
     try:
         Users.objects.filter(uid=uid).delete()
+        return Response("Success")
     except Users.DoesNotExist:
         return Response("User does not exist")
