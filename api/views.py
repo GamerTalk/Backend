@@ -536,6 +536,11 @@ def EditUser(request):
 
 @api_view(["DELETE"])
 def deleteUser(request):
+    # Sample body
+    # {
+    #     "uid": "user uid",
+    #     "secretCode": "unique code"
+    # }
     uid = request.data["uid"]
 
     if request.data["secretCode"] == SECRET_CODE:
