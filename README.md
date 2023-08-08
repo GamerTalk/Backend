@@ -1,5 +1,7 @@
 # GamerTalk Backend
 
+<img src="/public\GamerTalkWideLogo.png" alt="Header" title="Header" width="1200">
+
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Description
