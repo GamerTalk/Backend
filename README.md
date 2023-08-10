@@ -29,6 +29,8 @@ GamerTalk is an application that allows gamers to connect with each other with t
 
    ```
 
+Optional but recommended: create a virtual dev environment at the root level.
+
 2. Install dependencies:
     
     ```bash
@@ -206,6 +208,24 @@ GamerTalk is an application that allows gamers to connect with each other with t
 
 ### Endpoint 5
 
+- **URL:** `/api/delete-user/`
+- **Method:** DELETE
+- **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+- **Body Parameters:**
+    ```json
+    {
+        "uid": "user uid",
+        "secretCode": "unique code"
+    }
+    ```
+- **Response:**
+  - Status Code: 200 (OK) || 400 (user doesn't exist)
+  - Response Body:
+    "success or failure string"
+   
+
+### Endpoint 6
+
 - **URL:** `/api/new-post/`
 - **Method:** POST
 - **Description:** Takes in the users post in the body and stores it in the database.
@@ -228,7 +248,7 @@ GamerTalk is an application that allows gamers to connect with each other with t
     }
     ```
 
-### Endpoint 6
+### Endpoint 7
 
 - **URL:** `/api/get-posts/`
 - **Method:** GET
@@ -247,7 +267,7 @@ GamerTalk is an application that allows gamers to connect with each other with t
     ]
     ```
 
-### Endpoint 7
+### Endpoint 8
 
 - **URL:** `/api/new-flashcard/`
 - **Method:** POST
@@ -271,7 +291,7 @@ GamerTalk is an application that allows gamers to connect with each other with t
     }
     ```
 
-### Endpoint 8
+### Endpoint 9
 
 - **URL:** `/api/get-flashcards/`
 - **Method:** GET
@@ -296,7 +316,7 @@ GamerTalk is an application that allows gamers to connect with each other with t
     ]
     ```
 
-### Endpoint 8
+### Endpoint 10
 
 - **URL:** `/api/delete-flashcard/`
 - **Method:** DELETE
