@@ -550,4 +550,4 @@ def deleteUser(request):
         except Users.DoesNotExist:
             return Response("User does not exist")
     else:
-        return Response("Need verification code")
+        return Response("Need verification code", 400)
