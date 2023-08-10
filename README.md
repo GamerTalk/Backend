@@ -6,7 +6,11 @@
 
 ## Description
 
-This is the backend server of the project GamerTalk. GamerTalk is an application that allows gamers to connect with each other with the goal of building connections and offering language exchange opportunities. 
+This is the backend server of the project GamerTalk. You can find the frontend server [here](https://github.com/GamerTalk/Frontend).
+
+GamerTalk is an application that allows gamers to connect with each other with the goal of building connections and offering language exchange opportunities. 
+
+Deployment: https://gamertalk.onrender.com/
 
 ## Table of Contents
 
@@ -24,6 +28,8 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
    git clone https://github.com/GamerTalk/Backend.git
 
    ```
+
+Optional but recommended: create a virtual dev environment at the root level.
 
 2. Install dependencies:
     
@@ -202,6 +208,24 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
 
 ### Endpoint 5
 
+- **URL:** `/api/delete-user/`
+- **Method:** DELETE
+- **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+- **Body Parameters:**
+    ```json
+    {
+        "uid": "user uid",
+        "secretCode": "unique code"
+    }
+    ```
+- **Response:**
+  - Status Code: 200 (OK) || 400 (user doesn't exist)
+  - Response Body:
+    "success or failure string"
+   
+
+### Endpoint 6
+
 - **URL:** `/api/new-post/`
 - **Method:** POST
 - **Description:** Takes in the users post in the body and stores it in the database.
@@ -224,7 +248,7 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 
-### Endpoint 6
+### Endpoint 7
 
 - **URL:** `/api/get-posts/`
 - **Method:** GET
@@ -243,7 +267,7 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     ]
     ```
 
-### Endpoint 7
+### Endpoint 8
 
 - **URL:** `/api/new-flashcard/`
 - **Method:** POST
@@ -267,7 +291,7 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 
-### Endpoint 8
+### Endpoint 9
 
 - **URL:** `/api/get-flashcards/`
 - **Method:** GET
@@ -292,7 +316,7 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     ]
     ```
 
-### Endpoint 8
+### Endpoint 10
 
 - **URL:** `/api/delete-flashcard/`
 - **Method:** DELETE
