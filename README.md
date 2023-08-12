@@ -17,10 +17,19 @@ Deployment: https://gamertalk.onrender.com/
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
-  - [POST api/new-user](#post-apinew-user)
-  - [PATCH api/edit-user](#patch-apiedit-user)
-  - [GET api/filter-users](#get-apifilter-users)
-  - [GET api/user-info](#get-apiuser-info)
+  - User
+    - [POST api/new-user](#post-apinew-user)
+    - [PATCH api/edit-user](#patch-apiedit-user)
+    - [GET api/filter-users](#get-apifilter-users)
+    - [GET api/user-info](#get-apiuser-info)
+    - [DELETE api/delete-user](#delete-apidelete-user)
+  - Posts
+    - [POST api/new-post](#post-apinew-post)
+    - [GET api/get-posts](#get-apiget-posts)
+  - Flashcards
+    - [POST api/new-flashcard](#post-apinew-flashcard)
+    - [GET api/get-flashcards](#get-apiget-flashcards)
+    - [DELETE api/delete-flashcard](#delete-apidelete-flashcard)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -231,7 +240,7 @@ Optional but recommended: create a virtual dev environment at the root level.
   - **Response Body**:"success or failure string"
    
 
-### `POST api/new-post `
+### `POST api/new-post`
 
  **Description:** Takes in the users post in the body and stores it in the database.
  
@@ -295,7 +304,7 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### `GET api/get-flashcards/`
+### `GET api/get-flashcards`
 
  **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
  
