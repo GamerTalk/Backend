@@ -2,7 +2,7 @@
 
 <img src="/public\GamerTalkWideLogo.png" alt="Header" title="Header" width="1200">
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![GitHub last updated (branch)](https://img.shields.io/github/last-commit/GamerTalk/Backend/main) ![GitHub issues](https://img.shields.io/github/issues/GamerTalk/Backend) 
 
 ## Description
 
@@ -67,8 +67,10 @@ Optional but recommended: create a virtual dev environment at the root level.
 
 ### `POST api/new-user/`
 
-- **Description:** Creates the user information entry into the database.
+ **Description:** Creates the user information entry into the database.
+  
 - **Body Parameters:**
+  
     ```json
     {
         "uid": "string",
@@ -85,8 +87,9 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -102,12 +105,11 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 2
+### `PATCH /api/edit-user`
 
-- **URL:** `/api/edit-user/`
-- **Method:** PATCH
-- **Description:** Updates the user information entry into the database.
+**Description:** Updates the user information entry into the database.
 - **Body Parameters:**
+  
     ```json
     {
         "uid": "string",
@@ -124,8 +126,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -141,11 +145,9 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 3
+### `GET /api/filter-users/`
 
-- **URL:** `/api/filter-users/`
-- **Method:** GET
-- **Description:** Takes in the filter parameters in the header, and returns an array of users that fit said parameters
+**Description:** Takes in the filter parameters in the header and returns an array of users that fit said parameters
 - **Header Parameters:**
     ```json
     {
@@ -155,9 +157,11 @@ Optional but recommended: create a virtual dev environment at the root level.
         "regions": ["north america"] 
     }
     ```
+    
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     [
         {
@@ -176,20 +180,20 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### Endpoint 4
+### `GET /api/user-info`
 
-- **URL:** `/api/user-info/`
-- **Method:** GET
-- **Description:** Takes in the users uid parameter in the header, and returns the user object
+**Description:** Takes in the users uid parameter in the header and returns the user object
 - **Header Parameters:**
     ```json
     {
         "uid":"string"
     }
     ```
+    
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
