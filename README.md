@@ -17,6 +17,7 @@ Deployment: https://gamertalk.onrender.com/
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
+  - [POST api/new-user](#post-apinew-user)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -64,10 +65,8 @@ Optional but recommended: create a virtual dev environment at the root level.
 
 ## **API Documentation**
 
-### Endpoint 1
+### `POST api/new-user/`
 
-- **URL:** `/api/new-user/`
-- **Method:** POST
 - **Description:** Creates the user information entry into the database.
 - **Body Parameters:**
     ```json
