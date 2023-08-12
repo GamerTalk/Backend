@@ -18,6 +18,9 @@ Deployment: https://gamertalk.onrender.com/
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
   - [POST api/new-user](#post-apinew-user)
+  - [PATCH api/edit-user](#patch-apiedit-user)
+  - [GET api/filter-users](#get-apifilter-users)
+  - [GET api/user-info](#get-apiuser-info)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -65,7 +68,7 @@ Optional but recommended: create a virtual dev environment at the root level.
 
 ## **API Documentation**
 
-### `POST api/new-user/`
+### `POST api/new-user`
 
  **Description:** Creates the user information entry into the database.
   
@@ -105,9 +108,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### `PATCH /api/edit-user`
+### `PATCH api/edit-user`
 
 **Description:** Updates the user information entry into the database.
+
 - **Body Parameters:**
   
     ```json
@@ -145,9 +149,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### `GET /api/filter-users/`
+### `GET api/filter-users`
 
 **Description:** Takes in the filter parameters in the header and returns an array of users that fit said parameters
+
 - **Header Parameters:**
     ```json
     {
@@ -180,9 +185,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### `GET /api/user-info`
+### `GET api/user-info`
 
 **Description:** Takes in the users uid parameter in the header and returns the user object
+
 - **Header Parameters:**
     ```json
     {
@@ -209,11 +215,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     },
     ```
 
-### Endpoint 5
+### `DELETE api/delete-user`
 
-- **URL:** `/api/delete-user/`
-- **Method:** DELETE
-- **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+ **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+ 
 - **Body Parameters:**
     ```json
     {
@@ -222,16 +227,14 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK) || 400 (user doesn't exist)
-  - Response Body:
-    "success or failure string"
+  - **Status Code**: 200 (OK) || 400 (user doesn't exist)
+  - **Response Body**:"success or failure string"
    
 
-### Endpoint 6
+### `POST api/new-post `
 
-- **URL:** `/api/new-post/`
-- **Method:** POST
-- **Description:** Takes in the users post in the body and stores it in the database.
+ **Description:** Takes in the users post in the body and stores it in the database.
+ 
 - **Body Parameters:**
     ```json
     {
@@ -241,8 +244,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     {
         "uid": "uid",
@@ -251,14 +254,13 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 7
+### `GET api/get-posts`
 
-- **URL:** `/api/get-posts/`
-- **Method:** GET
-- **Description:** Returns an array of all public users post.
+**Description:** Returns an array of all public users post.
+
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     [
         {
@@ -270,11 +272,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### Endpoint 8
+###  `POST api/new-flashcard`
 
-- **URL:** `/api/new-flashcard/`
-- **Method:** POST
-- **Description:** Takes in the new flashcard information in the body and stores it in the flashcard database.
+**Description:** Takes in the new flashcard information in the body and stores it in the flashcard database.
+
 - **Body Parameters:**
     ```json
     {
@@ -284,8 +285,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     {
         "user_uid": "uid",
@@ -294,11 +295,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 9
+### `GET api/get-flashcards/`
 
-- **URL:** `/api/get-flashcards/`
-- **Method:** GET
-- **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
+ **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
+ 
 - **Header Parameters:**
     ```json
     {
@@ -306,8 +306,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     [
         {
@@ -319,11 +319,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### Endpoint 10
+### `DELETE api/delete-flashcard`
 
-- **URL:** `/api/delete-flashcard/`
-- **Method:** DELETE
-- **Description:** Takes in the users uid and the cards id, and deletes it from the database.
+ **Description:** Takes in the users uid and the cards id, and deletes it from the database.
+ 
 - **Header Parameters:**
     ```json
     {
@@ -332,8 +331,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     True
     ```
