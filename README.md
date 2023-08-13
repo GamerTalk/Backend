@@ -2,7 +2,7 @@
 
 <img src="/public\GamerTalkWideLogo.png" alt="Header" title="Header" width="1200">
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![GitHub last updated (branch)](https://img.shields.io/github/last-commit/GamerTalk/Backend/main) ![GitHub issues](https://img.shields.io/github/issues/GamerTalk/Backend) 
 
 ## Description
 
@@ -17,6 +17,19 @@ Deployment: https://gamertalk.onrender.com/
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
+  - User
+    - [POST api/new-user](#post-apinew-user)
+    - [PATCH api/edit-user](#patch-apiedit-user)
+    - [GET api/filter-users](#get-apifilter-users)
+    - [GET api/user-info](#get-apiuser-info)
+    - [DELETE api/delete-user](#delete-apidelete-user)
+  - Posts
+    - [POST api/new-post](#post-apinew-post)
+    - [GET api/get-posts](#get-apiget-posts)
+  - Flashcards
+    - [POST api/new-flashcard](#post-apinew-flashcard)
+    - [GET api/get-flashcards](#get-apiget-flashcards)
+    - [DELETE api/delete-flashcard](#delete-apidelete-flashcard)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -64,12 +77,12 @@ Optional but recommended: create a virtual dev environment at the root level.
 
 ## **API Documentation**
 
-### Endpoint 1
+### `POST api/new-user`
 
-- **URL:** `/api/new-user/`
-- **Method:** POST
-- **Description:** Creates the user information entry into the database.
+ **Description:** Creates the user information entry into the database.
+  
 - **Body Parameters:**
+  
     ```json
     {
         "uid": "string",
@@ -86,8 +99,9 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -103,12 +117,12 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 2
+### `PATCH api/edit-user`
 
-- **URL:** `/api/edit-user/`
-- **Method:** PATCH
-- **Description:** Updates the user information entry into the database.
+**Description:** Updates the user information entry into the database.
+
 - **Body Parameters:**
+  
     ```json
     {
         "uid": "string",
@@ -125,8 +139,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -142,11 +158,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 3
+### `GET api/filter-users`
 
-- **URL:** `/api/filter-users/`
-- **Method:** GET
-- **Description:** Takes in the filter parameters in the header, and returns an array of users that fit said parameters
+**Description:** Takes in the filter parameters in the header and returns an array of users that fit said parameters
+
 - **Header Parameters:**
     ```json
     {
@@ -156,9 +171,11 @@ Optional but recommended: create a virtual dev environment at the root level.
         "regions": ["north america"] 
     }
     ```
+    
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     [
         {
@@ -177,20 +194,21 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### Endpoint 4
+### `GET api/user-info`
 
-- **URL:** `/api/user-info/`
-- **Method:** GET
-- **Description:** Takes in the users uid parameter in the header, and returns the user object
+**Description:** Takes in the users uid parameter in the header and returns the user object
+
 - **Header Parameters:**
     ```json
     {
         "uid":"string"
     }
     ```
+    
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -206,11 +224,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     },
     ```
 
-### Endpoint 5
+### `DELETE api/delete-user`
 
-- **URL:** `/api/delete-user/`
-- **Method:** DELETE
-- **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+ **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+ 
 - **Body Parameters:**
     ```json
     {
@@ -219,16 +236,14 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK) || 400 (user doesn't exist)
-  - Response Body:
-    "success or failure string"
+  - **Status Code**: 200 (OK) || 400 (user doesn't exist)
+  - **Response Body**:"success or failure string"
    
 
-### Endpoint 6
+### `POST api/new-post`
 
-- **URL:** `/api/new-post/`
-- **Method:** POST
-- **Description:** Takes in the users post in the body and stores it in the database.
+ **Description:** Takes in the users post in the body and stores it in the database.
+ 
 - **Body Parameters:**
     ```json
     {
@@ -238,8 +253,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     {
         "uid": "uid",
@@ -248,14 +263,13 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 7
+### `GET api/get-posts`
 
-- **URL:** `/api/get-posts/`
-- **Method:** GET
-- **Description:** Returns an array of all public users post.
+**Description:** Returns an array of all public users post.
+
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     [
         {
@@ -267,11 +281,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### Endpoint 8
+###  `POST api/new-flashcard`
 
-- **URL:** `/api/new-flashcard/`
-- **Method:** POST
-- **Description:** Takes in the new flashcard information in the body and stores it in the flashcard database.
+**Description:** Takes in the new flashcard information in the body and stores it in the flashcard database.
+
 - **Body Parameters:**
     ```json
     {
@@ -281,8 +294,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     {
         "user_uid": "uid",
@@ -291,11 +304,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 
-### Endpoint 9
+### `GET api/get-flashcards`
 
-- **URL:** `/api/get-flashcards/`
-- **Method:** GET
-- **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
+ **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
+ 
 - **Header Parameters:**
     ```json
     {
@@ -303,8 +315,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     [
         {
@@ -316,11 +328,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     ]
     ```
 
-### Endpoint 10
+### `DELETE api/delete-flashcard`
 
-- **URL:** `/api/delete-flashcard/`
-- **Method:** DELETE
-- **Description:** Takes in the users uid and the cards id, and deletes it from the database.
+ **Description:** Takes in the users uid and the cards id, and deletes it from the database.
+ 
 - **Header Parameters:**
     ```json
     {
@@ -329,8 +340,8 @@ Optional but recommended: create a virtual dev environment at the root level.
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     True
     ```
