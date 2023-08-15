@@ -14,6 +14,7 @@ Deployment: https://gamertalk.onrender.com/
 
 ## Table of Contents
 
+- [Tech Stack - Backend](#tech-stack---frontend)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
@@ -33,6 +34,13 @@ Deployment: https://gamertalk.onrender.com/
 - [Contributing](#contributing)
 - [License](#license)
 
+## Tech Stack - Frontend
+
+| Task | Tech |
+| ---------- | ----------|
+| Language | ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white) |
+| Framework | ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+<!-- | Testing Framwork | to be completed | -->
 ## Installation
 
 1. Clone the repository:
