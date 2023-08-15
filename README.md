@@ -38,7 +38,7 @@ Deployment: https://gamertalk.onrender.com/
 
 | Task | Tech |
 | ---------- | ----------|
-| Language | [Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
+| Language | ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 
 ## Installation
 
