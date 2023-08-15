@@ -14,6 +14,7 @@ Deployment: https://gamertalk.onrender.com/
 
 ## Table of Contents
 
+- [Tech Stack - Backend](#tech-stack---frontend)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
@@ -32,6 +33,12 @@ Deployment: https://gamertalk.onrender.com/
     - [DELETE api/delete-flashcard](#delete-apidelete-flashcard)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Tech Stack - Frontend
+
+| Task | Tech |
+| ---------- | ----------|
+| Language | [Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)
 
 ## Installation
 
