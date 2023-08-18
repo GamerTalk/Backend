@@ -14,7 +14,7 @@ Deployment: https://gamertalk.onrender.com/
 
 ## Table of Contents
 
-- [Tech Stack - Backend](#tech-stack---frontend)
+- [Tech Stack - Backend](#tech-stack---backend)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
@@ -34,15 +34,16 @@ Deployment: https://gamertalk.onrender.com/
 - [Contributing](#contributing)
 - [License](#license)
 
-## Tech Stack - Frontend
+## Tech Stack - Backend
 
 | Task | Tech |
 | ---------- | ----------|
 | Language | ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white) |
 | Framework | ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white) |
 | Database | ![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) |
-
 <!-- | Testing Framwork | to be completed | -->
+
+Click [here](https://github.com/GamerTalk/Frontend#tech-stack---frontend) for the Frontend Tech Stack.
 ## Installation
 
 1. Clone the repository:
