@@ -63,9 +63,10 @@ Optional but recommended: create a virtual dev environment at the root level.
     
     ```
 
-3. This application uses a local postgres database. Thus, you will have to create the database through postgres and then save the connection information to the database in a `.env` file. Use the `.env.example` file for what variables are required.
+3.  Create a `.env` file at the root level of the project. Use the `.env.example` file for what environment variables are required. SECRET_KEY is the key that django uses in settings.py. You can create your own string in development. SECRET_CODE is used for verification of request. Again you can create your own string for development.
+
     
-4. Set up the database.
+4. Set up the database. This command with create a db.sqlite3 file in the config folder.
     
     ```bash
     
