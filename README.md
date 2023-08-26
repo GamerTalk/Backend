@@ -46,12 +46,14 @@ Deployment: https://gamertalk.onrender.com/
 Click [here](https://github.com/GamerTalk/Frontend#tech-stack---frontend) for the Frontend Tech Stack.
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository or create your own fork of the project:
 
    ```bash
    git clone https://github.com/GamerTalk/Backend.git
 
    ```
+
+If you forked the project, you will need to get the link for your own fork.
 
 Optional but recommended: create a virtual dev environment at the root level.
 
