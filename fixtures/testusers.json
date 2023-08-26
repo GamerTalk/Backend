@@ -3,7 +3,7 @@
     "model": "base.users",
     "pk": 6,
     "fields": {
-      "uid": "delete me",
+      "uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2",
       "username": "GodSlayerXD",
       "date_of_birth": "1999-01-01",
       "about_me": "I was born in a log cabin.",
@@ -23,54 +23,54 @@
   {
     "model": "base.english",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "level": 6 }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "level": 6 }
   },
   {
     "model": "base.spanish",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "level": 6 }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "level": 6 }
   },
   {
     "model": "base.japanese",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "level": 3 }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "level": 3 }
   },
   {
     "model": "base.german",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "level": 1 }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "level": 1 }
   },
   {
     "model": "base.systems",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "system": "playstation" }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "system": "playstation" }
   },
   {
     "model": "base.systems",
     "pk": 2,
-    "fields": { "user_uid": "delete me", "system": "pc" }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "system": "pc" }
   },
   {
     "model": "base.genre",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "genre": "shooters" }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "genre": "shooters" }
   },
   {
     "model": "base.genre",
     "pk": 2,
-    "fields": { "user_uid": "delete me", "genre": "survival" }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "genre": "survival" }
   },
   {
     "model": "base.region",
     "pk": 1,
-    "fields": { "user_uid": "delete me", "region": "north america" }
+    "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "region": "north america" }
   },
 
   {
     "model": "base.users",
     "pk": 7,
     "fields": {
-      "uid": "TESTUSER2",
+      "uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1",
       "username": "TESTUSER2",
       "date_of_birth": "2005-02-23",
       "about_me": "I was created to be test user 2.",
@@ -90,49 +90,49 @@
   {
     "model": "base.japanese",
     "pk": 2,
-    "fields": { "user_uid": "TESTUSER2", "level": 6 }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "level": 6 }
   },
   {
     "model": "base.english",
     "pk": 2,
-    "fields": { "user_uid": "TESTUSER2", "level": 3 }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "level": 3 }
   },
   {
     "model": "base.german",
     "pk": 2,
-    "fields": { "user_uid": "TESTUSER2", "level": 1 }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "level": 1 }
   },
   {
     "model": "base.systems",
     "pk": 3,
-    "fields": { "user_uid": "TESTUSER2", "system": "pc" }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "system": "pc" }
   },
   {
     "model": "base.systems",
     "pk": 4,
-    "fields": { "user_uid": "TESTUSER2", "system": "xbox" }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "system": "xbox" }
   },
   {
     "model": "base.genre",
     "pk": 3,
-    "fields": { "user_uid": "TESTUSER2", "genre": "shooters" }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "genre": "shooters" }
   },
   {
     "model": "base.genre",
     "pk": 4,
-    "fields": { "user_uid": "TESTUSER2", "genre": "fighting" }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "genre": "fighting" }
   },
   {
     "model": "base.region",
     "pk": 2,
-    "fields": { "user_uid": "TESTUSER2", "region": "asia" }
+    "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "region": "asia" }
   },
 
   {
     "model": "base.users",
     "pk": 8,
     "fields": {
-      "uid": "TESTUSER3",
+      "uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2",
       "username": "TESTUSER3",
       "date_of_birth": "2023-02-23",
       "about_me": "I was created to be test user 3.",
@@ -152,49 +152,49 @@
   {
     "model": "base.chinese",
     "pk": 1,
-    "fields": { "user_uid": "TESTUSER3", "level": 6 }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "level": 6 }
   },
   {
     "model": "base.korean",
     "pk": 1,
-    "fields": { "user_uid": "TESTUSER3", "level": 6 }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "level": 6 }
   },
   {
     "model": "base.english",
     "pk": 3,
-    "fields": { "user_uid": "TESTUSER3", "level": 1 }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "level": 1 }
   },
   {
     "model": "base.japanese",
     "pk": 3,
-    "fields": { "user_uid": "TESTUSER3", "level": 3 }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "level": 3 }
   },
   {
     "model": "base.systems",
     "pk": 6,
-    "fields": { "user_uid": "TESTUSER3", "system": "xbox" }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "system": "xbox" }
   },
   {
     "model": "base.systems",
     "pk": 7,
-    "fields": { "user_uid": "TESTUSER3", "system": "switch" }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "system": "switch" }
   },
   {
     "model": "base.genre",
     "pk": 5,
-    "fields": { "user_uid": "TESTUSER3", "genre": "party games" }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "genre": "party games" }
   },
   {
     "model": "base.region",
     "pk": 3,
-    "fields": { "user_uid": "TESTUSER3", "region": "asia" }
+    "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "region": "asia" }
   },
 
   {
     "model": "base.users",
     "pk": 9,
     "fields": {
-      "uid": "TESTUSER4",
+      "uid": "3syG6BUYtpN4XxnntwWjTcKumME3",
       "username": "TESTUSER4",
       "date_of_birth": "1977-02-23",
       "about_me": "I was created to be test user 4.",
@@ -211,36 +211,36 @@
   {
     "model": "base.french",
     "pk": 1,
-    "fields": { "user_uid": "TESTUSER4", "level": 6 }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "level": 6 }
   },
   {
     "model": "base.english",
     "pk": 4,
-    "fields": { "user_uid": "TESTUSER4", "level": 6 }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "level": 6 }
   },
   {
     "model": "base.spanish",
     "pk": 2,
-    "fields": { "user_uid": "TESTUSER4", "level": 1 }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "level": 1 }
   },
   {
     "model": "base.systems",
     "pk": 8,
-    "fields": { "user_uid": "TESTUSER4", "system": "switch" }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "system": "switch" }
   },
   {
     "model": "base.systems",
     "pk": 9,
-    "fields": { "user_uid": "TESTUSER4", "system": "playstation" }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "system": "playstation" }
   },
   {
     "model": "base.genre",
     "pk": 6,
-    "fields": { "user_uid": "TESTUSER4", "genre": "party games" }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "genre": "party games" }
   },
   {
     "model": "base.region",
     "pk": 4,
-    "fields": { "user_uid": "TESTUSER4", "region": "europe" }
+    "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "region": "europe" }
   }
 ]
