@@ -1,27 +1,61 @@
 # GamerTalk Backend
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+<img src="/public\GamerTalkWideLogo.png" alt="Header" title="Header" width="1200">
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) ![GitHub last updated (branch)](https://img.shields.io/github/last-commit/GamerTalk/Backend/main) ![GitHub issues](https://img.shields.io/github/issues/GamerTalk/Backend) 
 
 ## Description
 
-This is the backend server of the project GamerTalk. GamerTalk is an application that allows gamers to connect with each other with the goal of building connections and offering language exchange opportunities. 
+This is the backend server of the project GamerTalk. You can find the frontend server [here](https://github.com/GamerTalk/Frontend).
+
+GamerTalk is an application that allows gamers to connect with each other with the goal of building connections and offering language exchange opportunities. 
+
+Deployment: https://gamertalk.onrender.com/
 
 ## Table of Contents
 
+- [Tech Stack - Backend](#tech-stack---backend)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
+  - User
+    - [POST api/new-user](#post-apinew-user)
+    - [PATCH api/edit-user](#patch-apiedit-user)
+    - [GET api/filter-users](#get-apifilter-users)
+    - [GET api/user-info](#get-apiuser-info)
+    - [DELETE api/delete-user](#delete-apidelete-user)
+  - Posts
+    - [POST api/new-post](#post-apinew-post)
+    - [GET api/get-posts](#get-apiget-posts)
+  - Flashcards
+    - [POST api/new-flashcard](#post-apinew-flashcard)
+    - [GET api/get-flashcards](#get-apiget-flashcards)
+    - [DELETE api/delete-flashcard](#delete-apidelete-flashcard)
 - [Contributing](#contributing)
 - [License](#license)
 
+## Tech Stack - Backend
+
+| Task | Tech |
+| ---------- | ----------|
+| Language | ![Python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white) |
+| Framework | ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white) |
+| Database | ![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) |
+<!-- | Testing Framwork | to be completed | -->
+
+Click [here](https://github.com/GamerTalk/Frontend#tech-stack---frontend) for the Frontend Tech Stack.
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository or create your own fork of the project:
 
    ```bash
    git clone https://github.com/GamerTalk/Backend.git
 
    ```
+
+If you forked the project, you will need to get the link for your own fork.
+
+Optional but recommended: create a virtual dev environment at the root level.
 
 2. Install dependencies:
     
@@ -31,9 +65,10 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     
     ```
 
-3. This application uses a local postgres database. Thus, you will have to create the database through postgres and then save the connection information to the database in a `.env` file. Use the `.env.example` file for what variables are required.
+3.  Create a `.env` file at the root level of the project. Use the `.env.example` file for what environment variables are required. SECRET_KEY is the key that django uses in settings.py. You can create your own string in development. SECRET_CODE is used for verification of request. Again you can create your own string for development.
+
     
-4. Set up the database.
+4. Set up the database. This command with create a db.sqlite3 file in the config folder.
     
     ```bash
     
@@ -56,12 +91,12 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
 
 ## **API Documentation**
 
-### Endpoint 1
+### `POST api/new-user`
 
-- **URL:** `/api/new-user/`
-- **Method:** POST
-- **Description:** Creates the user information entry into the database.
+ **Description:** Creates the user information entry into the database.
+  
 - **Body Parameters:**
+  
     ```json
     {
         "uid": "string",
@@ -78,8 +113,9 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -95,12 +131,12 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 
-### Endpoint 2
+### `PATCH api/edit-user`
 
-- **URL:** `/api/edit-user/`
-- **Method:** PATCH
-- **Description:** Updates the user information entry into the database.
+**Description:** Updates the user information entry into the database.
+
 - **Body Parameters:**
+  
     ```json
     {
         "uid": "string",
@@ -117,8 +153,10 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -134,11 +172,10 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 
-### Endpoint 3
+### `GET api/filter-users`
 
-- **URL:** `/api/filter-users/`
-- **Method:** GET
-- **Description:** Takes in the filter parameters in the header, and returns an array of users that fit said parameters
+**Description:** Takes in the filter parameters in the header and returns an array of users that fit said parameters
+
 - **Header Parameters:**
     ```json
     {
@@ -148,9 +185,11 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
         "regions": ["north america"] 
     }
     ```
+    
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     [
         {
@@ -169,20 +208,21 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     ]
     ```
 
-### Endpoint 4
+### `GET api/user-info`
 
-- **URL:** `/api/user-info/`
-- **Method:** GET
-- **Description:** Takes in the users uid parameter in the header, and returns the user object
+**Description:** Takes in the users uid parameter in the header and returns the user object
+
 - **Header Parameters:**
     ```json
     {
         "uid":"string"
     }
     ```
+    
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
+    
     ```json
     {
         "uid": "uid",
@@ -198,11 +238,26 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     },
     ```
 
-### Endpoint 5
+### `DELETE api/delete-user`
 
-- **URL:** `/api/new-post/`
-- **Method:** POST
-- **Description:** Takes in the users post in the body and stores it in the database.
+ **Description:** Takes in the users uid parameter in the body with a confirmation code, and returns the user object
+ 
+- **Body Parameters:**
+    ```json
+    {
+        "uid": "user uid",
+        "secretCode": "unique code"
+    }
+    ```
+- **Response:**
+  - **Status Code**: 200 (OK) || 400 (user doesn't exist)
+  - **Response Body**:"success or failure string"
+   
+
+### `POST api/new-post`
+
+ **Description:** Takes in the users post in the body and stores it in the database.
+ 
 - **Body Parameters:**
     ```json
     {
@@ -212,8 +267,8 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     {
         "uid": "uid",
@@ -222,14 +277,13 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 
-### Endpoint 6
+### `GET api/get-posts`
 
-- **URL:** `/api/get-posts/`
-- **Method:** GET
-- **Description:** Returns an array of all public users post.
+**Description:** Returns an array of all public users post.
+
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     [
         {
@@ -241,11 +295,10 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     ]
     ```
 
-### Endpoint 7
+###  `POST api/new-flashcard`
 
-- **URL:** `/api/new-flashcard/`
-- **Method:** POST
-- **Description:** Takes in the new flashcard information in the body and stores it in the flashcard database.
+**Description:** Takes in the new flashcard information in the body and stores it in the flashcard database.
+
 - **Body Parameters:**
     ```json
     {
@@ -255,8 +308,8 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     {
         "user_uid": "uid",
@@ -265,11 +318,10 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 
-### Endpoint 8
+### `GET api/get-flashcards`
 
-- **URL:** `/api/get-flashcards/`
-- **Method:** GET
-- **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
+ **Description:** Takes in the users uid in the header, and returns all users flashcards as an array.
+ 
 - **Header Parameters:**
     ```json
     {
@@ -277,8 +329,8 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     [
         {
@@ -290,11 +342,10 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     ]
     ```
 
-### Endpoint 8
+### `DELETE api/delete-flashcard`
 
-- **URL:** `/api/delete-flashcard/`
-- **Method:** DELETE
-- **Description:** Takes in the users uid and the cards id, and deletes it from the database.
+ **Description:** Takes in the users uid and the cards id, and deletes it from the database.
+ 
 - **Header Parameters:**
     ```json
     {
@@ -303,8 +354,8 @@ This is the backend server of the project GamerTalk. GamerTalk is an application
     }
     ```
 - **Response:**
-  - Status Code: 200 (OK)
-  - Response Body:
+  - **Status Code**: 200 (OK)
+  - **Response Body**:
     ```json
     True
     ```
