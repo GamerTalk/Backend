@@ -4,35 +4,35 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from base.models import (
     Users,
-    english,
-    spanish,
-    french,
-    german,
-    japanese,
-    chinese,
-    korean,
-    systems,
-    genre,
-    messages,
-    region,
-    posts,
-    flashcards
+    English,
+    Spanish,
+    French,
+    German,
+    Japanese,
+    Chinese,
+    Korean,
+    Systems,
+    Genre,
+    Messages,
+    Region,
+    Posts,
+    Flashcards
 )
 from .serializers import (
     UsersSerializer,
-    englishSerializer,
-    spanishSerializer,
-    frenchSerializer,
-    germanSerializer,
-    japaneseSerializer,
-    chineseSerializer,
-    koreanSerializer,
-    systemsSerializer,
-    genraSerializer,
-    messagesSerializer,
-    regionSerializer,
-    postsSerializer,
-    flashCardsSerialized
+    EnglishSerializer,
+    SpanishSerializer,
+    FrenchSerializer,
+    GermanSerializer,
+    JapaneseSerializer,
+    ChineseSerializer,
+    KoreanSerializer,
+    SystemsSerializer,
+    GenreSerializer,
+    MessagesSerializer,
+    RegionSerializer,
+    PostsSerializer,
+    FlashCardsSerialized
 )
 import json
 import os
@@ -43,13 +43,13 @@ dotenv.load_dotenv()
 SECRET_CODE = os.getenv("SECRET_CODE")
 
 model_map = {
-    'english': (english, englishSerializer),
-    'spanish': (spanish, spanishSerializer),
-    'german': (german, germanSerializer),
-    'french': (french, frenchSerializer),
-    'japanese': (japanese, japaneseSerializer),
-    'chinese': (chinese, chineseSerializer),
-    'korean': (korean, koreanSerializer),
+    'english': (English, EnglishSerializer),
+    'spanish': (Spanish, SpanishSerializer),
+    'german': (German, GermanSerializer),
+    'french': (French, FrenchSerializer),
+    'japanese': (Japanese, JapaneseSerializer),
+    'chinese': (Chinese, ChineseSerializer),
+    'korean': (Korean, KoreanSerializer),
 }
 
 
@@ -167,8 +167,8 @@ def UserFlashcards(request):
     user_agent = request.headers
     user_uid = user_agent.get("uid")
 
-    user_cards_query = flashcards.objects.filter(Q(user_uid=user_uid)).order_by('-id')
-    user_cards = flashCardsSerialized(user_cards_query, many=True)
+    user_cards_query = Flashcards.objects.filter(Q(user_uid=user_uid)).order_by('-id')
+    user_cards = FlashCardsSerialized(user_cards_query, many=True)
 
     return Response(user_cards.data)
 
@@ -190,7 +190,7 @@ def NewFlashcard(request):
         'back': back
     }
 
-    new_flashcard_serializer = flashCardsSerialized(data=new_flashcard_payload)
+    new_flashcard_serializer = FlashCardsSerialized(data=new_flashcard_payload)
 
     if new_flashcard_serializer.is_valid():
         new_flashcard_serializer.save()
@@ -210,7 +210,7 @@ def DeleteFlashcard(request):
     # }
     user_uid = request.data["user_uid"]
     card_id = request.data["card_id"]
-    flashcards.objects.filter(Q(user_uid=user_uid) & Q(id=card_id)).delete()
+    Flashcards.objects.filter(Q(user_uid=user_uid) & Q(id=card_id)).delete()
 
     return Response(True)
 
@@ -235,7 +235,7 @@ def NewPost(request):
         'message': message
     }
 
-    new_post_serializer = postsSerializer(data=new_post_payload)
+    new_post_serializer = PostsSerializer(data=new_post_payload)
 
     if new_post_serializer.is_valid():
         new_post_serializer.save()
@@ -248,8 +248,8 @@ def NewPost(request):
 @api_view(["GET"])
 def GetPosts(request):
 
-    all_posts_query = posts.objects.select_related('sender').order_by('-id').all()
-    all_posts = postsSerializer(all_posts_query, many=True)
+    all_posts_query = Posts.objects.select_related('sender').order_by('-id').all()
+    all_posts = PostsSerializer(all_posts_query, many=True)
     return Response(all_posts.data)
 
 @api_view(["POST"])
@@ -343,7 +343,7 @@ def NewUser(request):
             "user_uid": uid,
             "system": system
         }
-        serializer = systemsSerializer(data=payload)
+        serializer = SystemsSerializer(data=payload)
         if serializer.is_valid():
             serializer.save()
         else:
@@ -356,7 +356,7 @@ def NewUser(request):
             "user_uid": uid,
             "genre": single_genre
         }
-        serializer = genraSerializer(data=payload)
+        serializer = GenreSerializer(data=payload)
         if serializer.is_valid():
             serializer.save()
         else:
@@ -367,7 +367,7 @@ def NewUser(request):
         "user_uid": uid,
         "region": region
     }
-    region_serializer = regionSerializer(data=region_payload)
+    region_serializer = RegionSerializer(data=region_payload)
     if region_serializer.is_valid():
         region_serializer.save()
     else:
@@ -421,16 +421,16 @@ def EditUser(request):
     languages_column = {"fluent": fluent, "learning": learning}
 
     # Delete old data from all other tables
-    english.objects.filter(user_uid=uid).delete()
-    spanish.objects.filter(user_uid=uid).delete()
-    german.objects.filter(user_uid=uid).delete()
-    french.objects.filter(user_uid=uid).delete()
-    chinese.objects.filter(user_uid=uid).delete()
-    japanese.objects.filter(user_uid=uid).delete()
-    korean.objects.filter(user_uid=uid).delete()
-    systems.objects.filter(user_uid=uid).delete()
-    genre.objects.filter(user_uid=uid).delete()
-    region.objects.filter(user_uid=uid).delete()
+    English.objects.filter(user_uid=uid).delete()
+    Spanish.objects.filter(user_uid=uid).delete()
+    German.objects.filter(user_uid=uid).delete()
+    French.objects.filter(user_uid=uid).delete()
+    Chinese.objects.filter(user_uid=uid).delete()
+    Japanese.objects.filter(user_uid=uid).delete()
+    Korean.objects.filter(user_uid=uid).delete()
+    Systems.objects.filter(user_uid=uid).delete()
+    Genre.objects.filter(user_uid=uid).delete()
+    Region.objects.filter(user_uid=uid).delete()
 
     # structures the data how the Users table wants the payload
     users_data = {
@@ -500,7 +500,7 @@ def EditUser(request):
             "user_uid": uid,
             "system": system
         }
-        system_serializer = systemsSerializer(data=payload)
+        system_serializer = SystemsSerializer(data=payload)
         if system_serializer.is_valid():
             system_serializer.save()
         else:
@@ -513,7 +513,7 @@ def EditUser(request):
             "user_uid": uid,
             "genre": single_genre
         }
-        genre_serializer = genraSerializer(data=payload)
+        genre_serializer = GenreSerializer(data=payload)
         if genre_serializer.is_valid():
             genre_serializer.save()
         else:
@@ -524,7 +524,7 @@ def EditUser(request):
         "user_uid": uid,
         "region": user_region
     }
-    region_serializer = regionSerializer(data=region_payload)
+    region_serializer = RegionSerializer(data=region_payload)
     if region_serializer.is_valid():
         region_serializer.save()
     else:
