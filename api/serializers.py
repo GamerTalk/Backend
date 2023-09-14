@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from base.models import Users, english, spanish, french, german, japanese, chinese, korean, systems, genre, messages, region, posts, flashcards
+from base.models import Users, English, Spanish, French, German, Japanese, Chinese, Korean, Systems, Genre, Messages, Region, Posts, Flashcards
 
 
 class UsersSerializer(serializers.ModelSerializer):
@@ -7,67 +7,67 @@ class UsersSerializer(serializers.ModelSerializer):
         model = Users
         fields = '__all__'
 
-class englishSerializer(serializers.ModelSerializer):
+class EnglishSerializer(serializers.ModelSerializer):
     class Meta:
-        model = english
+        model = English
         fields = '__all__'
 
-class spanishSerializer(serializers.ModelSerializer):
+class SpanishSerializer(serializers.ModelSerializer):
     class Meta:
-        model = spanish
+        model = Spanish
         fields = '__all__'
 
-class frenchSerializer(serializers.ModelSerializer):
+class FrenchSerializer(serializers.ModelSerializer):
     class Meta:
-        model = french
+        model = French
         fields = '__all__'
 
-class germanSerializer(serializers.ModelSerializer):
+class GermanSerializer(serializers.ModelSerializer):
     class Meta:
-        model = german
+        model = German
         fields = '__all__'
 
-class japaneseSerializer(serializers.ModelSerializer):
+class JapaneseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = japanese
+        model = Japanese
         fields = '__all__'
 
-class chineseSerializer(serializers.ModelSerializer):
+class ChineseSerializer(serializers.ModelSerializer):
     class Meta:
-        model = chinese
+        model = Chinese
         fields = '__all__'
 
-class koreanSerializer(serializers.ModelSerializer):
+class KoreanSerializer(serializers.ModelSerializer):
     class Meta:
-        model = korean
+        model = Korean
         fields = '__all__'
 
-class systemsSerializer(serializers.ModelSerializer):
+class SystemsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = systems
+        model = Systems
         fields = '__all__'
 
-class genraSerializer(serializers.ModelSerializer):
+class GenreSerializer(serializers.ModelSerializer):
     class Meta:
-        model = genre
+        model = Genre
         fields = '__all__'
 
-class messagesSerializer(serializers.ModelSerializer):
+class MessagesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = messages
+        model = Messages
         fields = '__all__'
 
-class regionSerializer(serializers.ModelSerializer):
+class RegionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = region
+        model = Region
         fields = '__all__'
 
-class postsSerializer(serializers.ModelSerializer):
+class PostsSerializer(serializers.ModelSerializer):
     sender_uid = serializers.CharField(source='sender.uid', max_length=100, read_only=True)
     sender_data = serializers.SerializerMethodField()
 
     class Meta:
-        model = posts
+        model = Posts
         fields = '__all__'
 
     def get_sender_data(self, instance):
@@ -88,11 +88,11 @@ class postsSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Invalid sender UID")
 
         validated_data['sender'] = sender
-        post = posts.objects.create(**validated_data)
+        post = Posts.objects.create(**validated_data)
 
         return post
     
-class flashCardsSerialized(serializers.ModelSerializer):
+class FlashCardsSerialized(serializers.ModelSerializer):
     class Meta:
-        model = flashcards
+        model = Flashcards
         fields = '__all__'
