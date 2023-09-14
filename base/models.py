@@ -17,47 +17,47 @@ class Users(models.Model):
     def __str__(self):
         return self.uid
 
-class english(models.Model):
+class English(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class spanish(models.Model):
+class Spanish(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class japanese(models.Model):
+class Japanese(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class korean(models.Model):
+class Korean(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class chinese(models.Model):
+class Chinese(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class german(models.Model):
+class German(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class french(models.Model):
+class French(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     level = models.IntegerField()
 
-class systems(models.Model):
+class Systems(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     system = models.TextField()
 
-class genre(models.Model):
+class Genre(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     genre = models.TextField()
 
-class region(models.Model):
+class Region(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     region = models.TextField()
 
-class messages(models.Model):
+class Messages(models.Model):
     sender = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid', related_name='sender_uid')
     receiver = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid', related_name='receiver_uid')
     time_of_message = models.TimeField()
@@ -66,7 +66,7 @@ class messages(models.Model):
     def __str__(self):
         return f"From: {self.sender.uid} | To: {self.receiver.uid}"
 
-class posts(models.Model):
+class Posts(models.Model):
     sender = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     time_of_message = models.CharField(max_length=100)
     message = models.TextField()
@@ -74,7 +74,7 @@ class posts(models.Model):
     def __str__(self):
         return f"From: {self.sender.uid} | message: {self.message}"
 
-class flashcards(models.Model):
+class Flashcards(models.Model):
     user_uid = models.ForeignKey(Users, on_delete=models.CASCADE, to_field='uid')
     front = models.TextField()
     back = models.TextField()
