@@ -163,6 +163,33 @@
     "pk": 2,
     "fields": { "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", "region": "asia" }
   },
+  {
+    "model": "base.posts", 
+    "pk": 3, 
+    "fields": {
+        "sender": "HYXhXrjue6NlsnNGN2u97OOkpEf1", 
+        "time_of_message": "2023-07-21T06:42:54.869Z", 
+        "message": "Tekkenをしましょう！"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 3, 
+    "fields": {
+        "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", 
+        "front": "こんにちは", 
+        "back":"hello"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 4, 
+    "fields": {
+        "user_uid": "HYXhXrjue6NlsnNGN2u97OOkpEf1", 
+        "front": "強い", 
+        "back":"strong"
+    }
+  },
 
   {
     "model": "base.users",
