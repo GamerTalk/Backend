@@ -168,7 +168,7 @@
     "pk": 3, 
     "fields": {
         "sender": "HYXhXrjue6NlsnNGN2u97OOkpEf1", 
-        "time_of_message": "2023-07-21T06:42:54.869Z", 
+        "time_of_message": "2015-07-21T06:42:54.869Z", 
         "message": "Tekkenをしましょう！"
     }
   },
@@ -251,6 +251,33 @@
     "model": "base.region",
     "pk": 3,
     "fields": { "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", "region": "asia" }
+  },
+  {
+    "model": "base.posts", 
+    "pk": 4, 
+    "fields": {
+        "sender": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", 
+        "time_of_message": "2013-07-21T06:42:54.869Z", 
+        "message": "Tekkenをしましょう！"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 5, 
+    "fields": {
+        "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", 
+        "front": "こんにちは", 
+        "back":"hello"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 6, 
+    "fields": {
+        "user_uid": "uKcMdjd2wcY1rNd5m0OI1gsnQSq2", 
+        "front": "強い", 
+        "back":"strong"
+    }
   },
 
   {
