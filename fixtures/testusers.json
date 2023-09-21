@@ -332,5 +332,32 @@
     "model": "base.region",
     "pk": 4,
     "fields": { "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", "region": "europe" }
+  },
+  {
+    "model": "base.posts", 
+    "pk": 5, 
+    "fields": {
+        "sender": "3syG6BUYtpN4XxnntwWjTcKumME3", 
+        "time_of_message": "2018-07-21T06:42:54.869Z", 
+        "message": "Tekkenをしましょう！"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 7, 
+    "fields": {
+        "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", 
+        "front": "hello", 
+        "back":"hola"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 8, 
+    "fields": {
+        "user_uid": "3syG6BUYtpN4XxnntwWjTcKumME3", 
+        "front": "good", 
+        "back":"Bueno"
+    }
   }
 ]
