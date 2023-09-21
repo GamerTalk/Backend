@@ -65,6 +65,42 @@
     "pk": 1,
     "fields": { "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", "region": "north america" }
   },
+  {
+    "model": "base.posts", 
+    "pk": 1, 
+    "fields": {
+        "sender": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", 
+        "time_of_message": "2013-09-21T06:42:54.869Z", 
+        "message": "Does anyone want to play COD?"
+    }
+  },
+  {
+    "model": "base.posts", 
+    "pk": 2, 
+    "fields": {
+        "sender": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", 
+        "time_of_message": "2023-07-21T06:42:54.869Z", 
+        "message": "Still waiting for someone to play COD?"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 1, 
+    "fields": {
+        "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", 
+        "front": "hello", 
+        "back":"こんにちは"
+    }
+  },
+  {
+    "model": "base.flashcards", 
+    "pk": 2, 
+    "fields": {
+        "user_uid": "q5lS9Ac17hM1fXXmr8ZpFghvz7W2", 
+        "front": "strong", 
+        "back":"強い"
+    }
+  },
 
   {
     "model": "base.users",
