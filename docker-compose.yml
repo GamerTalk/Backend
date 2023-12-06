@@ -1,9 +1,8 @@
 version: '3'
 
-services:
-  web:
-    build: 
-      dockerfile: dockerfile
+services: 
+  app:
+    build: .
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
@@ -11,4 +10,3 @@ services:
       - .env
     volumes:
       - .:/app
-      - ./.env:/app/.env  # Mount the .env file into the container
