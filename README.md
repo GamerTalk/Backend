@@ -90,7 +90,8 @@ docker-compose exec app python manage.py migrate
 
 To import test database:
 ```
-docker-compose exec app python manage.py loaddata fixtures/testusers.json 
+docker-compose exec app python manage.py loaddata fixtures/testusers.json
+```
 
 ### Run locally
 
@@ -100,7 +101,7 @@ Optional but recommended: create a virtual dev environment at the root level.
     ```bash
     
     pip install -r requirements.txt
-    
+
     ```
 
 3.  Create a `.env` file at the root level of the project. Use the `.env.example` file for what environment variables are required. 
