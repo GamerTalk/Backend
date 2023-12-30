@@ -16,6 +16,8 @@ Deployment: https://gamertalk.onrender.com/
 
 - [Tech Stack - Backend](#tech-stack---backend)
 - [Installation](#installation)
+  - [Docker container](#docker-container)
+  - [Run locally](#run-locally)
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
   - User
@@ -44,6 +46,7 @@ Deployment: https://gamertalk.onrender.com/
 <!-- | Testing Framwork | to be completed | -->
 
 Click [here](https://github.com/GamerTalk/Frontend#tech-stack---frontend) for the Frontend Tech Stack.
+
 ## Installation
 
 1. Clone the repository or create your own fork of the project:
@@ -55,18 +58,53 @@ Click [here](https://github.com/GamerTalk/Frontend#tech-stack---frontend) for th
 
 If you forked the project, you will need to get the link for your own fork.
 
-Optional but recommended: create a virtual dev environment at the root level.
+Next, chose to either run the backend in a docker container or locally on your own machine
 
+### Docker container
+
+2. Copy the contents of the `.envexample` file into a `.env` file. 
+
+3. Run the following command from your application root directory
+
+```
+docker-compose build
+```
+
+```
+docker-compose up
+```
+or (run as deamon)
+```
+docker-compose up -d
+```
+
+If you need to rebuild the container:
+```
+docker-compose up --build
+```
+
+Migrate Django database:
+```
+docker-compose exec app python manage.py migrate
+```
+
+To import test database:
+```
+docker-compose exec app python manage.py loaddata fixtures/testusers.json
+```
+
+### Run locally
+
+Optional but recommended: create a virtual dev environment at the root level.
 2. Install dependencies:
     
     ```bash
     
     pip install -r requirements.txt
-    
+
     ```
 
-3.  Create a `.env` file at the root level of the project. Use the `.env.example` file for what environment variables are required. SECRET_KEY is the key that django uses in settings.py. You can create your own string in development. SECRET_CODE is used for verification of request. Again you can create your own string for development.
-
+3.  Create a `.env` file at the root level of the project. Use the `.env.example` file for what environment variables are required. 
     
 4. Set up the database. This command with create a db.sqlite3 file in the config folder.
     
@@ -75,11 +113,17 @@ Optional but recommended: create a virtual dev environment at the root level.
     python manage.py migrate
     
     ```
+
+5. Optional, load test users to database
+
+    ```bash
+    python manage.py loaddata fixtures/testusers.json 
+    ```
     
 
 ## **Usage**
 
-1. Start the development server:
+1. (Not necessary for Docker) Start the development server:
     
     ```bash
     
